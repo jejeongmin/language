@@ -21,7 +21,7 @@ void addToTeleBook(const std::string& na, int tele){
 
 void printNumber(const std::string& na){
   std::shared_lock<std::shared_timed_mutex> readerLock(teleBookMutex);
-  std::cout << na << ": " << teleBook[na];
+  std::cout << na << ": " << teleBook[na];	// -> this code ocuured write operation. teleBook[na] = 0
 }
 
 int main(){

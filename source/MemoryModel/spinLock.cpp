@@ -3,8 +3,12 @@
 #include <atomic>
 #include <thread>
 
+/*
+	std::atomic<bool> 로 대체구현 가능
+*/
+
 class Spinlock{
-  std::atomic_flag flag;
+  std::atomic_flag flag;	// c++11 스펙이어서 deprecated 됨
 public:
   Spinlock(): flag(ATOMIC_FLAG_INIT){}
 

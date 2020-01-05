@@ -24,6 +24,7 @@ void producer(promise<int>&& prom){
     prom.set_value(2011);
 }
 
+// 그냥 mutex 인데도 여러번 lock_guard 호출을 통해 재귀적으로 락이 걸리네.
 void consumer(shared_future<int> fut,
               steady_clock::duration dur){
     const auto start = steady_clock::now();

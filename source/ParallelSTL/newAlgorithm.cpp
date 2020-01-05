@@ -6,6 +6,7 @@
 #include <string>
 #include <vector>
 
+// vs2017 에서는 아직 아래 형식에 대해 컴파일 지원하지 않음
 
 int main(){
   
