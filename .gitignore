@@ -31,3 +31,7 @@
 *.out
 *.app
 /windows/.vs/SystemProgramming/v15
+/windows/01_00_pipe_server/x64/Debug
+/windows/01_01_pipe_client/x64/Debug
+/windows/02_00_unnamed_pipe/x64/Debug
+/windows/x64/Debug

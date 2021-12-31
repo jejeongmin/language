@@ -5,6 +5,7 @@
 #include <iostream>
 #include <Windows.h>
 #include <tchar.h>
+#include <conio.h>
 
 #define BUF_SIZE 1024
 
@@ -13,6 +14,8 @@ int _tmain(int argc, TCHAR *argv[])
 	HANDLE hPipe;
 	TCHAR readDataBuf[BUF_SIZE + 1];
 	LPCTSTR pipeName = _T("\\\\.\\pipe\\simple_pipe");
+
+	std::wcout << _T("pipe client starting...") << std::endl;
 
 	while (1)
 	{
@@ -29,17 +32,17 @@ int _tmain(int argc, TCHAR *argv[])
 		if (hPipe != INVALID_HANDLE_VALUE)
 			break;
 
-		if (GetLastError() != ERROR_PIPE_BUSY)
+		int error = GetLastError();
+		if (error != ERROR_PIPE_BUSY)
 		{
-			// Could not open pipe
-			return 0;
+			std::wcout << _T("pipe open fail - error : ") << error << std::endl;
 		}
 
 		// 파이프가 꽉 차있을 경우, 더 기다리겠다...
 		if (!WaitNamedPipe(pipeName, 20000))
 		{
-			// Could not open pipe
-			return 0;
+			std::wcout << _T("pipe open fail - WaitNamePipe") << std::endl;
+			return -1;
 		}
 	}
 
@@ -51,43 +54,63 @@ int _tmain(int argc, TCHAR *argv[])
 		NULL);
 
 	if (!isSuccess)
-		return 0;
-
-	LPCTSTR fileName = _T("name txt");
-	DWORD bytesWritten = 0;
-
-	isSuccess = WriteFile(
-		hPipe,                // 파이프 핸들
-		fileName,             // 전송할 메시지 
-		(lstrlen(fileName) + 1) * sizeof(TCHAR), // 메시지 길이 
-		&bytesWritten,             // 전송된 바이트 수
-		NULL);
-	   
-	if (!isSuccess)
 	{
-		_tprintf(_T("WriteFile failed"));
-		return 0;
+		std::wcout << _T("pipe open fail - SetNamedPipeHandleState") << std::endl;
+		return -1;
 	}
-
-	DWORD bytesRead = 0;
 
 	while (1)
 	{
+		TCHAR	sendbuf[BUF_SIZE];
+
+		std::wcout << _T("Cmd >");
+		std::wcin >> sendbuf;
+
+		if (0 == _tcscmp(sendbuf, _T("bye")))
+		{
+			std::wcout << _T("press any key to exit ") << sendbuf << std::endl;
+			break;
+		}
+
+		DWORD bytesWritten = 0;
+		DWORD bytesRead = 0;
+
+		isSuccess = WriteFile(
+			hPipe,                // 파이프 핸들
+			&sendbuf,             // 전송할 메시지 
+			(lstrlen(sendbuf) + 1) * sizeof(TCHAR), // 메시지 길이 
+			&bytesWritten,             // 전송된 바이트 수
+			NULL);
+
+		if (!isSuccess)
+		{
+			std::wcout << _T("WriteFile failed : ") << sendbuf << std::endl;
+			break;
+		}
+
+		std::wcout << _T("WriteFile success : ") << sendbuf << std::endl;
+
 		isSuccess = ReadFile(
 			hPipe,						// 파이프 핸들
 			readDataBuf,				// 데이터 수신할 버퍼
-			BUF_SIZE * sizeof(TCHAR),  // 버퍼 사이즈
+			BUF_SIZE * sizeof(TCHAR),	// 버퍼 사이즈
 			&bytesRead,					// 수신한 바이트 수
 			NULL);
 
 		if (!isSuccess && GetLastError() != ERROR_MORE_DATA)
+		{
+			std::wcout << _T("ReadFile failed : ") << readDataBuf << std::endl;
 			break;
+		}
 
 		readDataBuf[bytesRead] = 0;
-		_tprintf(_T("%s \n"), readDataBuf);
+
+		std::wcout << _T("ReadFile success : ") << readDataBuf << std::endl;
 	}
 
 	CloseHandle(hPipe);
+
+	_getch();
 
 	return 0;
 }
