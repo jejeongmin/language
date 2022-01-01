@@ -35,3 +35,7 @@
 /windows/01_01_pipe_client/x64/Debug
 /windows/02_00_unnamed_pipe/x64/Debug
 /windows/x64/Debug
+/windows/03_00_multithread_pipe_server/x64/Debug
+/windows/03_01_pipe_client/x64/Debug
+/windows/03_02_transaction_pipe_client/x64/Debug
+/windows/03_03_callnamed_pipe_client/x64/Debug

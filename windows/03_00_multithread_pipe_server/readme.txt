@@ -1,0 +1,1 @@
+https://docs.microsoft.com/ko-kr/windows/win32/ipc/multithreaded-pipe-server
