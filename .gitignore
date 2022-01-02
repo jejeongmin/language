@@ -39,3 +39,5 @@
 /windows/03_01_pipe_client/x64/Debug
 /windows/03_02_transaction_pipe_client/x64/Debug
 /windows/03_03_callnamed_pipe_client/x64/Debug
+/windows/03_04_overlapped_pipe_server/x64/Debug
+/windows/03_05_completeroutine_pipe_server/x64/Debug
