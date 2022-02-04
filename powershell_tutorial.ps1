@@ -83,3 +83,71 @@ Get-Service M* | Where-Object {$_.Status -eq "Stopped"}
 Get-Service M* | Where-Object {$_.Status -eq "Running" -or $_.Status -eq "Stopped"}
 # 위의 결과에서 먼저 서비스의 상태를 내림차순으로 정렬한 다음 서비스의 이름을 내림차순으로 정렬해서 출력한다.
 Get-Service M* | Where-Object {$_.Status -eq "Running" -or $_.Status -eq "Stopped"} | Sort-Object -Property Status, Name -Descending
+
+# 출력 스트림의 표현 양식을 아래와 같이 처리할 수 있다.
+$Msg=@("Hello","Powershell","world")
+Write-Host -Object $Msg -ForegroundColor White -BackgroundColor Black -Separator ∥
+
+# GUI 형식의 gridview 로 출력 가
+Write-Output @(1..5) | Out-GridView
+Write-Output @(1..5) -NoEnumerate | Out-GridView
+Get-ChildItem | Out-GridView
+
+# 시스템의 서비스 목록을 가져와서 상태의 이름으로 정렬하고 그리드뷰로 출력한다.
+Get-Service | Sort-Object Status, DisplayName | Out-GridView
+# 그리드 뷰의 타이틀 이름을 "정렬된 서비스 목록"으로 하고, 서비스 목록을 다중 선택해서 콘솔에 출력한다. '확인' 버튼이 생김
+Get-Service | Sort-Object Status, DisplayName | Out-GridView -Title "정렬된 서비스 목록" -OutputMode Multiple
+# 첫번째 그리드 뷰에서 다중 선택한 목록을 다시 그리드 뷰로 출력한다.
+Get-Service | Sort-Object Status, DisplayName | Out-GridView -Title "정렬된 서비스 목록" -PassThru | Out-GridView -Title "선택한 서비스 목록"
+
+# 서시 목록을 가져와 상태로 정렬한 다음 이름과 상태 속성만 포함하는 ASCII 형식의 ServideList.csv 파일로 출력한다.
+Get-Service | Sort-Object -Property Status | Select-Object -Property Name, Status | Out-File -FilePath ServiceList.txt -Encoding ascii
+
+# Microsoft Print to PDF 라는 가상 프린터 형태로 출 
+"Hello PowerShell" | Out-Printer -Name "\\jeongminje\Microsoft Print to PDF"력
+
+# 현재 시스템에서사용할 수 있는 프린터 이름 출력
+Get-Printer | Select-Object -Property Name, DriverName, PortName
+
+# 현재 디렉토리의 파일 목록을 3개의 열로 출력
+Get-ChildItem | Format-Wide -Column 3
+# 현재 디렉토리의 파일들의 생성 시간을 창에 맞게 맞게 가로로 배열해서 출력
+Get-ChildItem | Format-Wide -Property CreationTime -AutoSize
+# 프로세스의 목록과 각 프로세스의 속성 중 이름과 ID, 시작 시간을 표시
+Get-Process | Format-List -Property Name, ID, StartTime
+# Out-* 동사로 시작하는 명령 중 별칭이 있는 항목의 모든 속성을 구하는 명령
+Get-Alias -Definition out-* | Format-Table -Property * -Wrap
+
+# 프로세스별 이름,ID,물리 메모리 크기 출력
+# 물리 메모리 크기의 레이블을 PM(MB) 로 바꾸고 값을 MB 단위로 출력
+# PM(MB) 열의 값을 소수점 둘째 자리, 왼쪽 맞춤으로 출력
+Get-Process | Format-Table -Property Name,ID,@{n='PM(MB)'; e={$PSItem.PM/1MB};formatString='N2';align='Left'}
+
+# 개체를 먼저 그룹화 하고자 하는 속성으로 정렬하는 과정을 거쳐야 한다.
+Get-Service | Format-Table -GroupBy Status
+Get-Service | Sort-Object -Property Status | Format-Table -GroupBy Status
+
+# csv 나 xml 등 값과 형식을 가진 파일 객체로 출력
+Get-Process | ConvertTo-CSV | Out-File Process.csv
+Get-Process | Export-Csv Process.csv
+
+Get-Service | Sort-Object -Property Status
+Get-Service | Sort-Object -Property Status | Select-Object -Property Name, Status, StartType
+Get-Service | Sort-Object -Property Status | Select-Object -Property Name, Status, StartType | ConvertTo-Csv | Out-File -FilePath ServiceList.csv
+
+# 파일로부터 입력 받는 방
+Get-Service | Export-Csv Services.csv
+Import-Csv Services.csv | Sort-Object -Property Name, Status, StartType -Descending | Select-Object -First 5
+
+# 사용자 입력 받는 방법
+$pwd=Read-Host -Prompt "type password" -AsSecureString
+
+# 100 개의 무작위 수를 얻는다.
+1..100 | ForEach-Object { Get-Random }
+
+# $ps 가 null 이면 다 작동 안함.
+$ps = Get-Process | Where-Object {$_.processName -eq "asdsvc"}
+Write-Host $ps.Handles;
+# 아래와 같이 kill 시키거나 속성에 대해 write 동작을 수행할 수도 있음
+# $ps.maxworkingset=30x1024x1024
+# $ps.kill()
