@@ -151,3 +151,38 @@ Write-Host $ps.Handles;
 # 아래와 같이 kill 시키거나 속성에 대해 write 동작을 수행할 수도 있음
 # $ps.maxworkingset=30x1024x1024
 # $ps.kill()
+
+# Windows 에서 기본 제공하는 공급자 목록을 확인
+Get-PSProvider
+
+Get-Help FileSystem
+
+# 시스템에서 사용 가능한 모든 드라이브 확인
+Get-PSDrive
+
+# 네트워크 드라이브 연결(일시적)
+New-PSDrive -Name "SVR1Share" -PSProvider FileSystem -Root "\\cf2_wip"
+
+# 네트워크 드라이브 연결(영구적)
+New-PSDrive -Persist -Name "Z" -PSProvider FileSystem -Root "\\cf2_wip"
+
+# 위에서 만든 드라이브 연결 제거
+Remove-PSDrive -Name SVR1Share, Z
+
+# C:\Program Files 폴더를 PROGDIR 이라는 임시 드라이브로 매핑한다.
+New-PSDrive -Name PROGDIR -Root "C:\Program Files" -PSProvider FileSystem
+# 매핑한 드라이브의 파일을 조회한다.
+dir PROGDIR:
+Get-ChildItem -Path PROGDIR:
+# 다시 지운다.
+Remove-PSDrive -Name PROGDIR
+
+# 레지스트리 공급자의 HKCU 드라이브에 "PowerShell\School" 이라는 새로운 레지스트리 키를 만든다.
+New-Item -Path HKCU:\ -Name PowerShell
+New-Item -Path HKCU:\PowerShell -Name School
+# School 키 내에 'Class' 라는 속성을 만들고, 'basic' 이라는 값을 설정한다.
+New-ItemProperty -Path HKCU:\PowerShell\School -Name Class -Value basic
+# 새로 만든 School 키 내의 Class 속성과 값을 확인한다.
+Get-ItemProperty -Path HKCU:\PowerShell\School
+# PowerShell 레지스트리 삭제
+Remove-Item HKCU:\PowerShell -Recurse
