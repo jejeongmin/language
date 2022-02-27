@@ -186,3 +186,19 @@ New-ItemProperty -Path HKCU:\PowerShell\School -Name Class -Value basic
 Get-ItemProperty -Path HKCU:\PowerShell\School
 # PowerShell 레지스트리 삭제
 Remove-Item HKCU:\PowerShell -Recurse
+
+# 스크립트 실행 정책 확인
+Get-ExecutionPolicy
+# Restricted, AllSigned, RemoteSigned, Unrestricted, Bypass, Undefined
+Set-ExecutionPolicy Restricted
+
+# $표시는 파우쉘 엔진에 변수 자체가 아니라 변수의 내용을 액세스 한다는 의미이다.
+$var = 'daily'
+Set-Variable -Name $var -Value 700
+Write-Host $var
+Write-Host $daily
+
+# 변수로 받는 건 객체형식이기 때문에 앞선 명령의 결과 반환 형식이 뭔지 확인해야 한다.
+# 아래 경우는 배열 형태의 결과를 고려해 스크립트 명령을 작성해야 한다.
+$file = Get-ChildItem -Path C:\Windows -File
+Get-Content -Path $file[0].FullName
