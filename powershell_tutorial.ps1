@@ -207,3 +207,5 @@ Get-Content -Path $file[0].FullName
 Set-ExecutionPolicy Unrestricted
 .\chater8_parameter_binding_example.ps1 -ComputerName 'DESKTOP-FOIF80S'
 Set-ExecutionPolicy Undefined
+
+.\SendMail.ps1 -To "jjmyann@gmail.com" -Subject "테스트 메일" -Body "Powershell 스크립트에서 보낸 메일입니다."
