@@ -202,3 +202,8 @@ Write-Host $daily
 # 아래 경우는 배열 형태의 결과를 고려해 스크립트 명령을 작성해야 한다.
 $file = Get-ChildItem -Path C:\Windows -File
 Get-Content -Path $file[0].FullName
+
+# script 실행을 하기 위해서는 실행 정책 변경이 우선 되어 있어야 한다.
+Set-ExecutionPolicy Unrestricted
+.\chater8_parameter_binding_example.ps1 -ComputerName 'DESKTOP-FOIF80S'
+Set-ExecutionPolicy Undefined
