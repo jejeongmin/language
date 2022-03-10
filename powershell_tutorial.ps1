@@ -207,5 +207,15 @@ Get-Content -Path $file[0].FullName
 Set-ExecutionPolicy Unrestricted
 .\chater8_parameter_binding_example.ps1 -ComputerName 'DESKTOP-FOIF80S'
 Set-ExecutionPolicy Undefined
-
 .\SendMail.ps1 -To "jjmyann@gmail.com" -Subject "테스트 메일" -Body "Powershell 스크립트에서 보낸 메일입니다."
+
+
+# 아직 Get-SecurityEvents 함수를 로딩하기 전 함수 목록 체크
+cd fucntion:
+ls
+# Get-SecurityEvents 함수를 로딩
+D:\powershell\DeclareFunction_Get-SecurityEvents.ps1
+# Get-SecurityEvents 함수를 로딩한 후 함수 목록 체크
+ls
+# 함수 호출
+Get-SecurityEvents DESKTOP-FOIF80S
