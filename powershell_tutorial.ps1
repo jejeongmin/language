@@ -210,12 +210,31 @@ Set-ExecutionPolicy Undefined
 .\SendMail.ps1 -To "jjmyann@gmail.com" -Subject "테스트 메일" -Body "Powershell 스크립트에서 보낸 메일입니다."
 
 
+########### 함수 적재에 대한 예시 ####################
 # 아직 Get-SecurityEvents 함수를 로딩하기 전 함수 목록 체크
 cd fucntion:
 ls
 # Get-SecurityEvents 함수를 로딩
-D:\powershell\DeclareFunction_Get-SecurityEvents.ps1
+.\DeclareFunction_Get-SecurityEvents.ps1
 # Get-SecurityEvents 함수를 로딩한 후 함수 목록 체크
 ls
 # 함수 호출
 Get-SecurityEvents DESKTOP-FOIF80S
+
+########### 변수 스코프에 대한 실행 결과 예시 ####################
+.\checkScopeExample_01.ps1
+.\checkScopeExample_02.ps1
+#scriptVar 는 스크립트 범위, 스크립트 내에서만 접근
+#functionVar 는 함수 범위. 함수내에서만 접근
+#callByFunction 변수는 다른 함수에서 불렀어요.
+#callByScript 변수는 다른 스크립트에서 불렀어요.
+
+$globalVar
+# 전역 범위, 스크립트 밖에서 접근
+
+$functionVar
+$localVarInFunc
+$scriptVarInFunc
+#함수 내에서 선언한 스크립트 범위
+$scriptVar
+# 스크립트 범위, 스크립트 내에서만 접근
