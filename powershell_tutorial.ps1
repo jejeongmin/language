@@ -255,3 +255,7 @@ Test-Connection -ComputerName www.microsoft.com -Verbose
 
 .\DeclareFunction_ConvertTo-InchToMeter.ps1
 ConvertTo-InchToMeter 500 -Verbose
+
+########### documentation 사용 예시 ####################
+# doxygen 과 유사한 방식으로 자동 문서화 지원, DeclareFunction_Get-SecurityEvents.ps1 참조
+Get-Help Get-SecurityEvents -detailed
