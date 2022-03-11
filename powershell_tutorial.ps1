@@ -238,3 +238,13 @@ $scriptVarInFunc
 #함수 내에서 선언한 스크립트 범위
 $scriptVar
 # 스크립트 범위, 스크립트 내에서만 접근
+
+########### 파워쉘 모듈 자동 적재하기 ####################
+Get-Content Env:\PSModulePath
+# C:\Program Files\WindowsPowerShell\Modules; 마이크로소프트가 예약한 위치
+# C:\Users\jeongminje\Documents\WindowsPowerShell\Modules;C:\Program Files (x86)\WindowsPowerShell\Modules; 로그인한 사용자가 직접 자신의 모듈을 저장할 수 있는 위치
+# C:\Windows\system32\WindowsPowerShell\v1.0\Modules; 모든 사용자에게 적용되는 전역 위치
+# 모듈 자동 적재하기 위해서는 *.psm1 으로 저장해서 위의 2, 3 번째 위 중 하나에 저정한다.
+
+# 모듈 적재 확인
+Get-Module -ListAvailable
