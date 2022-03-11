@@ -248,3 +248,10 @@ Get-Content Env:\PSModulePath
 
 # 모듈 적재 확인
 Get-Module -ListAvailable
+
+########### verbose 사용 예시 ####################
+# 실행에 관련된 자세한 정보를 보기 위해 -verbose 를 활용한다. trace, debug 레벨 정보를 출력한다고 생각하면 된다.
+Test-Connection -ComputerName www.microsoft.com -Verbose
+
+.\DeclareFunction_ConvertTo-InchToMeter.ps1
+ConvertTo-InchToMeter 500 -Verbose
