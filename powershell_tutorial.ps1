@@ -259,3 +259,13 @@ ConvertTo-InchToMeter 500 -Verbose
 ########### documentation 사용 예시 ####################
 # doxygen 과 유사한 방식으로 자동 문서화 지원, DeclareFunction_Get-SecurityEvents.ps1 참조
 Get-Help Get-SecurityEvents -detailed
+
+########### 스크립트 중간 실행 실패 시 예외 환경 따른 동작 확인 ####################
+# offline 컴퓨터에서 명령이 실패하면, $ErrorActionPreference 값에 따라 online 컴퓨터에 대해 명령을 수행할 수도 있고 그렇지 않을 수도 있다.
+Restart-Computer jeongminje-offline, jeongminje-online
+
+# notepad 가 실행된 게 없는데 아래 명령이 수행되면 에러가 발생한다.
+Get-Process -Name Notepad | ForEach-Object { $PSItem.Kill() }
+
+# Continue, SilentlyContinue, Inquire, Stop
+$ErrorActionPreference = 'Stop'
