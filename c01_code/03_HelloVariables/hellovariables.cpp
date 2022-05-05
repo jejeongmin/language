@@ -10,7 +10,7 @@ int main()
 	int uninitializedInt;
 	int initializedInt = 7;
 
-	cout << uninitializedInt << " is a random value" << endl;
+	cout << uninitializedInt << " is a random value" << endl;	// 최신 컴파일러는 초기화되지 않은 변수 사용에 대해서 컴파일 에러를 기본으로 한다.
 	cout << initializedInt << " was assigned an initial value" << endl;
 
 	return 0;
