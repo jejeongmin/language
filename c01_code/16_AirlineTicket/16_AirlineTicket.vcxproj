@@ -18,9 +18,16 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AirlineTicket.cpp" />
+    <ClCompile Include="AirlineTicketTest.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AirlineTicket.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{6C591637-BB06-4134-AE69-FD1D309F101E}</ProjectGuid>
+    <ProjectGuid>{96700E5F-3B7F-4D0F-8402-506698017043}</ProjectGuid>
     <RootNamespace>My03HelloVariables</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -114,9 +121,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="hellovariables.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

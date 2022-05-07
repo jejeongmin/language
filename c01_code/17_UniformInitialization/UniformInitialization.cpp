@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -19,7 +20,10 @@ private:
 	double mRadius;
 };
 
-void func(int i) { /* ... */ }
+void func(int i)
+{
+	std::cout << "i : " << i << std::endl;
+}
 
 class MyClass
 {
@@ -53,7 +57,7 @@ int main()
 	func(3.14);
 
 	// 축소 변환되지 않는다.
-	//int x = {3.14};    // 축소 변환 때문에 에러 발생
+	//int y = {3.14};    // 축소 변환 때문에 에러 발생
 	//func({3.14});      // 축소 변환 때문에 에러 발생
 
 	// 벡터에도 유니폼 초기화를 적용할 수 있다.
