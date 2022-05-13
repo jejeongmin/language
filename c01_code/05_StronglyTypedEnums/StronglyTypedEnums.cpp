@@ -1,5 +1,6 @@
 #include <iostream>
 
+// 열거형 타입을 엄격히 관리하고 싶다면, enum 이 아니라 enum class 를 사용한다.
 enum class PieceType
 {
 	King = 1,

@@ -41,6 +41,11 @@ int main()
 		case 6:
 			employeeDB.displayFormer();
 			break;
+		case 7:
+			cout << "fall through works" << endl;
+			// fallthrough 속성 사용해봄. 
+			// c++17 이상에서만 빌드 가능
+			[[fallthrough]];
 		default:
 			cerr << "Unknown command." << endl;
 			break;
