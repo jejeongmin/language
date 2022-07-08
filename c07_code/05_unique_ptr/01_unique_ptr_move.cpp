@@ -1,3 +1,4 @@
+#include <cstdlib>
 #include <memory>
 
 using namespace std;
@@ -11,10 +12,21 @@ private:
 	unique_ptr<int> mData;
 };
 
+
+int* malloc_int(int value)
+{
+	int* p = (int*)malloc(sizeof(int));
+	*p = value;
+
+	return p;
+}
+
 int main()
 {
 	auto myIntSmartPtr = make_unique<int>(42);
 	Foo f(move(myIntSmartPtr));
+
+	unique_ptr<int, decltype(free)*> myIntSmartPtr2(malloc_int(42), free);
 
     return 0;
 }

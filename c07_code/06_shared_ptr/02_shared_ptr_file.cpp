@@ -2,6 +2,8 @@
 #include <memory>
 #include <cstdio>
 
+//#define MAIN_2
+
 using namespace std;
 
 void CloseFile(FILE* filePtr)
@@ -11,6 +13,8 @@ void CloseFile(FILE* filePtr)
 	fclose(filePtr);
 	cout << "File closed." << endl;
 }
+
+#ifdef MAIN_2
 
 int main()
 {
@@ -30,3 +34,5 @@ int main()
 	}
 	return 0;
 }
+
+#endif

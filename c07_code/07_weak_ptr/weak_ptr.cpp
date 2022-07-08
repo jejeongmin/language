@@ -12,7 +12,7 @@ public:
 
 void useResource(weak_ptr<Simple>& weakSimple)
 {
-	auto resource = weakSimple.lock();
+	auto resource = weakSimple.lock();	// weak_ptr 의 lock 을 호출하면, 연결된 shared_ptr 을 넘겨받는다.
 	if (resource) {
 		cout << "Resource still alive." << endl;
 	} else {
@@ -20,6 +20,7 @@ void useResource(weak_ptr<Simple>& weakSimple)
 	}
 }
 
+// shared_ptr 만 사용해서 자기 자신을 가르키는 순환 참조가 발생할 위험이 있을 때, weak_ptr 을 사용하면 좋다.
 int main()
 {
 	auto sharedSimple = make_shared<Simple>();

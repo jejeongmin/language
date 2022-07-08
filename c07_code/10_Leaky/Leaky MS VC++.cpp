@@ -9,6 +9,10 @@
 	#endif
 #endif  // _DEBUG
 
+#define MAIN_1
+
+#ifdef MAIN_1
+
 class Simple 
 {
 public:
@@ -39,3 +43,4 @@ int main()
 	return 0;
 }
 
+#endif

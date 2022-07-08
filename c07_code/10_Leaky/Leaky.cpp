@@ -1,3 +1,8 @@
+
+//#define MAIN_2
+
+#ifdef MAIN_2
+
 class Simple 
 {
 public:
@@ -10,6 +15,7 @@ private:
 	int* mIntPtr;
 };
 
+// Simple* 의 레퍼런스, 그래서 Simple*& 이다. 원본 객체에 영향을 줘야 하니까.
 void doSomething(Simple*& outSimplePtr)
 {
 	outSimplePtr = new Simple(); // 버그! 원본 객체를 삭제하지 않았다.
@@ -25,3 +31,5 @@ int main()
 
 	return 0;
 }
+
+#endif

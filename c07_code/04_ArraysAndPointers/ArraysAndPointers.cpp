@@ -49,7 +49,17 @@ int main()
 	doubleInts(stackArray, arrSize);
 	doubleInts(&stackArray[0], arrSize);
 
+	// 함수템플릿을 활용하면 스택 배열의 크기를 컴파일러가 알아낼 수 있지만..
 	doubleIntsStack(stackArray);
 
+	// 스택 크기가 달라지면 크기마다 함수템플릿이 함수를 계속 구체화해버리니, 좋지도 않고 문법이 깔끔하지도 않음.
+	int stackArray2[] = { 5, 7, 9, 11, 13 };
+	doubleIntsStack(stackArray2);
+
+	// 크기가 다른 호출에 대해 함수가 달라지는 걸 확인
+	printf("%p \n", doubleIntsStack<4>);
+	printf("%p \n", doubleIntsStack<4>);
+	printf("%p \n", doubleIntsStack<5>);
+	
 	return 0;
 }
