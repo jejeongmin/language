@@ -9,9 +9,13 @@ public:
 		return shared_from_this();
 	}
 
+	/*shared_ptr<Foo> getPointerWrongImplementation() {
+		return make_shared<Foo>(this);
+	}*/
+
 	Foo* getThisPointer() {
 		return this;
-	}
+	}	
 };
 
 int main()

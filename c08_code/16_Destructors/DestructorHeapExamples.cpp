@@ -3,6 +3,9 @@
 
 using namespace std;
 
+//# define MAIN_2
+
+#ifdef MAIN_2
 int main()
 {
 	SpreadsheetCell* cellPtr1 = new SpreadsheetCell(5);
@@ -15,3 +18,4 @@ int main()
 
 	return 0;
 } // cellPtr2는 제거되지 않는다. 여기에 대해 delete를 호출하지 않았기 때문이다.
+#endif

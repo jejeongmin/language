@@ -2,7 +2,12 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="source">
-      <UniqueIdentifier>{390b91eb-6bd6-468c-80d6-89a0a6b0af6a}</UniqueIdentifier>
+      <UniqueIdentifier>{480c898c-00a4-4848-9aaf-7e07fa175d7a}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CtorInitializerOrder.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

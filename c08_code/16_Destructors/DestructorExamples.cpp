@@ -3,6 +3,9 @@
 
 using namespace std;
 
+# define MAIN_1
+
+#ifdef MAIN_1
 int main()
 {
 	SpreadsheetCell myCell(5);
@@ -20,3 +23,4 @@ int main()
 
 	return 0;
 } // 이 블록을 벗어나면 myCell이 제거된다.
+#endif

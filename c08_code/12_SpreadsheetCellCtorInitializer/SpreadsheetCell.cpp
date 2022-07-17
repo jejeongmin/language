@@ -2,9 +2,13 @@
 
 using namespace std;
 
+/*
+	객체의 크기가 클 경우 대입 연산자보다 복제 생성자가 일반적으로 성능 효율이 더 좋다. 복제 생성자를 통해 복사하는 걸 추천한다.
+*/
 SpreadsheetCell::SpreadsheetCell(double initialValue)
-	: mValue(initialValue)
+	: mValue(initialValue)		// 이렇게 호출할 경우에는 내부 변수에 대해 복제 생성자를 이용해 복사한다.
 {
+	//mValue = initialValue;	// 이렇게 호출할 경우에는 내부 변수에 대해 대입 연사자를 이용해 복사한다.
 }
 
 SpreadsheetCell::SpreadsheetCell(string_view initialValue)

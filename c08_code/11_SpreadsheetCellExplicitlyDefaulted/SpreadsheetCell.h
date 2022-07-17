@@ -6,7 +6,8 @@
 class SpreadsheetCell
 {
 public:
-	SpreadsheetCell() = default;
+	SpreadsheetCell() = default;		// default 생성자 자동 생성 키워드
+	//SpreadsheetCell() = delete;		// 명시적으로 삭제된 생성자 개념도 지원한다.
 	SpreadsheetCell(double initialValue);
 	SpreadsheetCell(std::string_view initialValue);
 
