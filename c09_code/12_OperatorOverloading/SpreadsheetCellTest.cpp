@@ -7,8 +7,8 @@
 using namespace std;
 
 //#define MAIN_1
-//#define MAIN_2
-#define MAIN_3
+#define MAIN_2
+//#define MAIN_3
 
 #ifdef MAIN_1
 
@@ -32,9 +32,8 @@ using namespace AddSecondAttempt;
 int main()
 {
 	SpreadsheetCell myCell(4), anotherCell(5);
-	SpreadsheetCell aThirdCell = myCell + anotherCell;
-	//SpreadsheetCell aThirdCell = myCell.operator+(anotherCell);
-
+	SpreadsheetCell aThirdCell = myCell + anotherCell;	// SpreadsheetCell aThirdCell = myCell.operator+(anotherCell); 호출과 동일하다.
+	
 	string str = "hello";
 
 	aThirdCell = myCell + string_view(str);

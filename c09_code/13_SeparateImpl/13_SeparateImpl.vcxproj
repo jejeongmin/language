@@ -21,6 +21,9 @@
     <ClInclude Include="SpreadsheetCell.h" />
     <ClInclude Include="SpreadsheetImpl.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="readMe.txt" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{00A43989-30DF-4C06-924A-177122C695F3}</ProjectGuid>

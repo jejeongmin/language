@@ -54,6 +54,10 @@ const SpreadsheetCell& Spreadsheet::getCellAt(size_t x, size_t y) const
 	return mCells[x][y];
 }
 
+/*
+	non-const 버전의 함수는 바로 위의 const 버전의 함수 구현을 그대로 활용해서 오버로딩한다.
+	구현 중복을 줄여서 코드를 간결히 하고, 변경에서 오는 실수를 방지할 수 있다.
+*/
 SpreadsheetCell& Spreadsheet::getCellAt(size_t x, size_t y)
 {
 	return const_cast<SpreadsheetCell&>(std::as_const(*this).getCellAt(x, y));

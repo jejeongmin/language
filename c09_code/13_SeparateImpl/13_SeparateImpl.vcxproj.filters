@@ -30,4 +30,7 @@
       <Filter>source</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="readMe.txt" />
+  </ItemGroup>
 </Project>

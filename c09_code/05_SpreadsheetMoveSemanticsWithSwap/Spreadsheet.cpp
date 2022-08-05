@@ -70,6 +70,17 @@ void swap(Spreadsheet& first, Spreadsheet& second) noexcept
 	swap(first.mCells, second.mCells);
 }
 
+/*
+	std::swap 은 이동의미론을 활용하여 아래와 같이 구현되어 있다.
+
+	void swap(T& a, T& b)
+	{
+		T	temp(std::move(a));
+		a = std::move(b);
+		b = std::move(temp);
+	}
+*/
+
 Spreadsheet& Spreadsheet::operator=(const Spreadsheet& rhs)
 {
 	cout << "Copy assignment operator" << endl;
