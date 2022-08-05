@@ -18,11 +18,36 @@ int main()
 		cout << endl;
 	}
 
-	Spreadsheet s(2,3);
-	s = createObject();
+	/*
+	Output :
+		Iteration 0
+		Normal constructor
+		Move constructor
 
-	Spreadsheet s2(5,6);
+		Iteration 1
+		Normal constructor
+		Move constructor
+		Move constructor
+	*/
+
+	Spreadsheet s(2, 3);
+	s = createObject();
+	/*
+	Output :
+		Normal constructor
+		Normal constructor
+		Move assignment operator
+	*/
+
+	Spreadsheet s2(5, 6);
 	s2 = s;
+	/*
+	Output :
+		Normal constructor
+		Copy assignment operator
+		Normal constructor
+		Copy constructor
+	*/
 
 	return 0;
 }

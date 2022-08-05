@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="AddFirstAttempt">
+      <UniqueIdentifier>{3c9a7e7f-ab94-4ff8-afd1-272918fff091}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AddSecondAttempt">
+      <UniqueIdentifier>{75a75b26-ec27-41f7-aac4-a85a3c8718fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GlobalOperators">
+      <UniqueIdentifier>{29a8975d-92ab-4d06-9850-39dc98880443}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AddFirstAttempt\AddFirstAttempt.cpp">
+      <Filter>AddFirstAttempt</Filter>
+    </ClCompile>
+    <ClCompile Include="AddSecondAttempt\AddSecondAttempt.cpp">
+      <Filter>AddSecondAttempt</Filter>
+    </ClCompile>
+    <ClCompile Include="GlobalOperators\GlobalOperators.cpp">
+      <Filter>GlobalOperators</Filter>
+    </ClCompile>
+    <ClCompile Include="SpreadsheetCellTest.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AddFirstAttempt\AddFirstAttempt.h">
+      <Filter>AddFirstAttempt</Filter>
+    </ClInclude>
+    <ClInclude Include="AddSecondAttempt\AddSecondAttempt.h">
+      <Filter>AddSecondAttempt</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalOperators\GlobalOperators.h">
+      <Filter>GlobalOperators</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

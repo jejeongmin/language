@@ -10,6 +10,17 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AddFirstAttempt\AddFirstAttempt.cpp" />
+    <ClCompile Include="AddSecondAttempt\AddSecondAttempt.cpp" />
+    <ClCompile Include="GlobalOperators\GlobalOperators.cpp" />
+    <ClCompile Include="SpreadsheetCellTest.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AddFirstAttempt\AddFirstAttempt.h" />
+    <ClInclude Include="AddSecondAttempt\AddSecondAttempt.h" />
+    <ClInclude Include="GlobalOperators\GlobalOperators.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{4BB0F5B0-96F4-4972-89C9-BCB295C5F959}</ProjectGuid>
@@ -50,6 +61,8 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

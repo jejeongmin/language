@@ -6,15 +6,22 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CfhdClient.h">
+    <ClInclude Include="DestructorNoException.h">
       <Filter>source</Filter>
     </ClInclude>
+    <ClInclude Include="DestructorException.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CfhdClient.cpp">
+    <ClCompile Include="cfhdClientCrashTest.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="cfhdClientCrashTest.cpp">
+    <ClCompile Include="DestructorNoException.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="DestructorException.cpp">
       <Filter>source</Filter>
     </ClCompile>
   </ItemGroup>

@@ -34,5 +34,6 @@ private:
 
 	const SpreadsheetApplication& mTheApp;
 
-	static size_t sCounter;
+	// static 멤버를 inline 으로 선언하고, 선언에서 초기화 하면 구현 함수에서 초기화 선언하지 않아도 된다.
+	static inline size_t sCounter = 0;
 };

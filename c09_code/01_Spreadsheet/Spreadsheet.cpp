@@ -63,6 +63,10 @@ void swap(Spreadsheet& first, Spreadsheet& second) noexcept
 	swap(first.mCells, second.mCells);
 }
 
+/*
+	대입 연산자는 반드시 깊은 복제(deep copy)를 사용해야 한다.
+	우변의 복제본을 생성해서 *this 와 교체하는 패턴에 따라 구현해야 exception 에 대한 안정성을 높일 수 있다.
+*/
 Spreadsheet& Spreadsheet::operator=(const Spreadsheet& rhs)
 {
 	// 자신을 대입하는지 확인한다.

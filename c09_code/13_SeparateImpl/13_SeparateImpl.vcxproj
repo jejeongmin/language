@@ -10,6 +10,17 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Spreadsheet.cpp" />
+    <ClCompile Include="SpreadsheetCell.cpp" />
+    <ClCompile Include="SpreadsheetImpl.cpp" />
+    <ClCompile Include="SpreadsheetTest.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Spreadsheet.h" />
+    <ClInclude Include="SpreadsheetCell.h" />
+    <ClInclude Include="SpreadsheetImpl.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{00A43989-30DF-4C06-924A-177122C695F3}</ProjectGuid>

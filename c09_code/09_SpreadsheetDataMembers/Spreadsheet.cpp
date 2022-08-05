@@ -6,7 +6,7 @@
 
 using namespace std;
 
-size_t Spreadsheet::sCounter;
+//size_t Spreadsheet::sCounter;
 
 Spreadsheet::Spreadsheet(size_t width, size_t height,
 	const SpreadsheetApplication& theApp)

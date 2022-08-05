@@ -4,8 +4,6 @@
 #include <utility>
 #include <algorithm>
 
-size_t Spreadsheet::Impl::sCounter;
-
 Spreadsheet::Impl::Impl(const SpreadsheetApplication& theApp,
 	size_t width, size_t height)
 	: mId(sCounter++)

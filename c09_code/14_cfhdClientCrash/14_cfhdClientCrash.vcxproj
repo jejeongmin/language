@@ -11,11 +11,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CfhdClient.h" />
+    <ClInclude Include="DestructorNoException.h" />
+    <ClInclude Include="DestructorException.h" />
+    <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CfhdClient.cpp" />
+    <ClCompile Include="DestructorNoException.cpp" />
     <ClCompile Include="cfhdClientCrashTest.cpp" />
+    <ClCompile Include="DestructorException.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

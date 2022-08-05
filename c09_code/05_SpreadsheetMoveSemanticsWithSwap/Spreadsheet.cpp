@@ -87,7 +87,7 @@ Spreadsheet& Spreadsheet::operator=(const Spreadsheet& rhs)
 
 // 이동 생성자
 Spreadsheet::Spreadsheet(Spreadsheet&& src) noexcept
-	: Spreadsheet()
+	: Spreadsheet()		// -> 기본 생성자를 default 로 선언해 사용
 {
 	cout << "Move constructor" << endl;
 
@@ -99,7 +99,7 @@ Spreadsheet& Spreadsheet::operator=(Spreadsheet&& rhs) noexcept
 {
 	cout << "Move assignment operator" << endl;
 
-	Spreadsheet temp(std::move(rhs));
+	Spreadsheet temp(std::move(rhs));	// r-value 를 move 를 통해 전달해서 앞서의 코드 ( 04_SpreadsheetMoveSemantics ) 보다 좀더 간단히 구현
 	swap(*this, temp);
 	return *this;
 }

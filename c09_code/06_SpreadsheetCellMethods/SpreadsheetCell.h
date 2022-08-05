@@ -25,7 +25,7 @@ public:
 
 private:
 	double mValue = 0;
-	mutable size_t mNumAccesses = 0;
+	mutable size_t mNumAccesses = 0;	// mutable 로 선언해두면 const 함수 호출이라도 값 변경할 수 있음
 };
 
 /*

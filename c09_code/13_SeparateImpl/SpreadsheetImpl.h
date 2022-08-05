@@ -29,5 +29,5 @@ private:
 
 	const SpreadsheetApplication& mTheApp;
 
-	static size_t sCounter;
+	static inline size_t sCounter = 0;
 };
