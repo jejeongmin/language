@@ -2,6 +2,10 @@
 
 using namespace std;
 
+//#define MAIN_1
+
+#ifdef MAIN_1
+
 class Dog
 {
 public:
@@ -40,3 +44,5 @@ int main()
 
 	return 0;
 }
+
+#endif
