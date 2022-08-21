@@ -1,6 +1,9 @@
 #include <iostream>
 #include <vector>
 
+//#define MAIN_6
+#ifdef MAIN_6
+
 using namespace std;
 
 void printVec(const vector<int>& arr)
@@ -34,3 +37,5 @@ int main()
 
 	return 0;
 }
+
+#endif

@@ -1,5 +1,8 @@
 #include <string>
 
+//#define MAIN_1
+#ifdef MAIN_1
+
 std::string getString()
 {
 	return "Hello world!";
@@ -33,3 +36,5 @@ int main()
 
 	return 0;
 }
+
+#endif

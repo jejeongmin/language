@@ -1,6 +1,6 @@
 #include <cstdio>
 
-int main()
+int main_1()
 {
 	printf("int %d\n", 5);
 	printf("String %s and int %d\n", "hello", 5);

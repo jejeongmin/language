@@ -1,3 +1,6 @@
+//#define MAIN_2
+
+#ifdef MAIN_2
 class Base
 {
 public:
@@ -10,6 +13,10 @@ public:
 	virtual ~Derived() = default;
 };
 
+/*
+	static_cast 는 변환 가능한지 타입 검사를 수행하지 않는다.
+	type 검사를 수행하려면 dynamic_cast 를 사용해야 한다.
+*/
 int main()
 {
 	int i = 3;
@@ -31,3 +38,4 @@ int main()
 
 	return 0;
 }
+#endif

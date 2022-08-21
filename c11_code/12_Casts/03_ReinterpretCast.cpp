@@ -1,6 +1,12 @@
+//#define MAIN_3
+
+#ifdef MAIN_3
 class X {};
 class Y {};
 
+/*
+	reinterpret_cast 를 활용하는 예로는 단순 복사 기능(스트림복사) 에 대해 binary I/O 를 수행하는 경우를 들 수 있다.
+*/
 int main()
 {
 	X x;
@@ -25,3 +31,4 @@ int main()
 
 	return 0;
 }
+#endif

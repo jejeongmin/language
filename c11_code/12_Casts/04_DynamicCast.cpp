@@ -1,3 +1,6 @@
+#define MAIN_4
+
+#ifdef MAIN_4
 #include <typeinfo>
 #include <iostream>
 using namespace std;
@@ -35,3 +38,4 @@ int main()
 
 	return 0;
 }
+#endif

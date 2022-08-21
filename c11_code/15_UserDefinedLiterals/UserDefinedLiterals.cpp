@@ -1,6 +1,13 @@
 #include <cstddef>
 #include <complex>
 
+/*
+	c++ 은 literal 을 직접 정의하는 기능도 제공한다.
+	이러한 사용자 정의 literal 은 반드시 _ 로 시작해야 한다.
+	그리고 _ 다음에 나오는 글자는 반드시 소문자여야 한다.
+*/
+
+// 숫자 값을 처리하려면 타입이 ull, unsigned double, char, wchar_t, char16_t, char32_t 중 하나로 된 매개변수가 필요하다.
 // Cooked _i literal
 std::complex<long double> operator"" _i(long double d)
 {  
@@ -14,6 +21,7 @@ std::complex<long double> operator"" _i(long double d)
 //}
 
 
+// 스트링을 처리하려면 매개변수가 두 개 있어야 한다. 첫번째는 문자 배열을, 두번째는그 배열의 길이를 지정한다.
 // 가공 모드 _s 리터럴
 std::string operator"" _s(const char* str, size_t len)
 {

@@ -2,6 +2,9 @@
 #include <array>
 #include <iostream>
 
+//#define MAIN_4
+#ifdef MAIN_4
+
 using namespace std;
 
 void printIntArr(const int arr[], size_t size)
@@ -56,3 +59,5 @@ int main()
 
 	return 0;
 }
+
+#endif

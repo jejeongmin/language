@@ -1,6 +1,6 @@
 #include <iostream>
 
-namespace {
+namespace TestScope {
 	void f();
 
 	void f()

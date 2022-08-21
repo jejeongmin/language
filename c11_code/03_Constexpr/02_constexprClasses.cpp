@@ -7,7 +7,7 @@ using namespace std;
 class Rect
 {
 public:
-	constexpr Rect(size_t width, size_t height)
+	constexpr Rect(size_t width, size_t height)	// constexpr 생성자를 정의해야 한다
 		: mWidth(width), mHeight(height)
 	{
 	}

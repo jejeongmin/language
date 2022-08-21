@@ -64,6 +64,7 @@ int main()
 	int z;
 	const int& zRef = z;
 	//  zRef = 4; // 컴파일 에러!
+	// zRef 는 const int& 여서 변경할 수 없지만, z 는 변경 가능하다.
 
 	return 0;
 }
