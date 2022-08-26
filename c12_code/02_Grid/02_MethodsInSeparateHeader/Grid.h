@@ -35,4 +35,5 @@ private:
 	size_t mWidth, mHeight;
 };
 
+// 템플릿 정의를 별도 header 파일로 분리해서 관리하는 방법
 #include "GridDefinitions.h"

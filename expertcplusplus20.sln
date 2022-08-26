@@ -283,6 +283,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "17_tie", "c13_code\17_tie\1
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "18_Bidirectional", "c13_code\18_Bidirectional\18_Bidirectional.vcxproj", "{CA519FD8-A32F-401E-9F84-715321F5CA07}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "13_TemplateArgumentTypeDeduction", "c12_code\13_TemplateArgumentTypeDeduction\13_TemplateArgumentTypeDeduction.vcxproj", "{74353A88-11DE-429B-9C06-5E3670A3B8FD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -1051,6 +1053,12 @@ Global
 		{CA519FD8-A32F-401E-9F84-715321F5CA07}.Release|x64.ActiveCfg = Release|x64
 		{CA519FD8-A32F-401E-9F84-715321F5CA07}.Release|x64.Build.0 = Release|x64
 		{CA519FD8-A32F-401E-9F84-715321F5CA07}.Release|x86.ActiveCfg = Release|x64
+		{74353A88-11DE-429B-9C06-5E3670A3B8FD}.Debug|x64.ActiveCfg = Debug|x64
+		{74353A88-11DE-429B-9C06-5E3670A3B8FD}.Debug|x64.Build.0 = Debug|x64
+		{74353A88-11DE-429B-9C06-5E3670A3B8FD}.Debug|x86.ActiveCfg = Debug|x64
+		{74353A88-11DE-429B-9C06-5E3670A3B8FD}.Release|x64.ActiveCfg = Release|x64
+		{74353A88-11DE-429B-9C06-5E3670A3B8FD}.Release|x64.Build.0 = Release|x64
+		{74353A88-11DE-429B-9C06-5E3670A3B8FD}.Release|x86.ActiveCfg = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1177,6 +1185,7 @@ Global
 		{F8B784D7-6DE0-4FFF-A38C-1F4C7B1378B4} = {41D05CA3-742D-40AD-939B-DAFB233B2958}
 		{2F47E4A6-3872-493B-9D31-B95436F405AB} = {41D05CA3-742D-40AD-939B-DAFB233B2958}
 		{CA519FD8-A32F-401E-9F84-715321F5CA07} = {41D05CA3-742D-40AD-939B-DAFB233B2958}
+		{74353A88-11DE-429B-9C06-5E3670A3B8FD} = {D820E6EE-9B02-49D4-ADEE-4C5FAF51E79E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0E86262E-6FF9-401A-AE9C-1279B6E15B50}

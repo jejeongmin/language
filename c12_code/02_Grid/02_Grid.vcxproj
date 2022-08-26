@@ -25,7 +25,6 @@
     <ClCompile Include="01_MethodsInHeader\SpreadsheetCell.cpp" />
     <ClCompile Include="02_MethodsInSeparateHeader\GridTest.cpp" />
     <ClCompile Include="02_MethodsInSeparateHeader\SpreadsheetCell.cpp" />
-    <ClCompile Include="03_MethodsInSource\Grid.cpp" />
     <ClCompile Include="03_MethodsInSource\GridTest.cpp" />
     <ClCompile Include="03_MethodsInSource\SpreadsheetCell.cpp" />
     <ClCompile Include="04_ExplicitInstantiations\Grid.cpp" />
