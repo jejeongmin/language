@@ -2,6 +2,9 @@
 #include <iostream>
 #include <cstring>
 #include <array>
+#include "SpreadsheetCell.h"
+
+#ifdef MAIN_4
 
 using namespace std;
 
@@ -48,6 +51,10 @@ size_t Find(const char* const& value, const char* const* arr, size_t size)
 	return NOT_FOUND; // 값을 찾지 못하면 NOT_FOUND를 리턴한다.
 }
 
+/*
+	컴파일러는 항상 템플릿 버전보다 일반 함수 버전을 우선시한다.
+	하지만 템플릿 인스턴스화를 명시적으로 지정하면 컴파일러는 무조건 템플릿 버전을 선택한다. -> 컴파일러가 아니라 프로그래머가 선택한거지.
+*/
 int main()
 {
 	const char* word = "two";
@@ -63,3 +70,4 @@ int main()
 
 	return 0;
 }
+#endif

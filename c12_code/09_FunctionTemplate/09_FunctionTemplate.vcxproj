@@ -18,9 +18,6 @@
     <ClCompile Include="SpreadsheetCell.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="README.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="SpreadsheetCell.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

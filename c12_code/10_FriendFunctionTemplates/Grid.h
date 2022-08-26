@@ -7,6 +7,12 @@
 #include <utility>
 #include <algorithm>
 
+/*
+	operator+ 를 특정한 타입 T 에 대해 인스턴스화 한 함수 템플릿 선언이, T 타입에 대한 Grid 템플릿 인스턴스의 friend 로 선언되어야 한다.
+	다르게 다시 한번 말하자면
+	Grid 템플릿을 T 타입으로 인스턴스화한 것에 대해 operator+ 를 T 타입으로 인스턴스화 한 것이 friend 가 되어야 한다.
+*/
+
 // Grid 템플릿에 대한 전방 선언
 template <typename T> class Grid;
 

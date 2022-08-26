@@ -40,3 +40,5 @@ bool operator>(const SpreadsheetCell& lhs, const SpreadsheetCell& rhs);
 bool operator!=(const SpreadsheetCell& lhs, const SpreadsheetCell& rhs);
 bool operator<=(const SpreadsheetCell& lhs, const SpreadsheetCell& rhs);
 bool operator>=(const SpreadsheetCell& lhs, const SpreadsheetCell& rhs);
+
+#define MAIN_4

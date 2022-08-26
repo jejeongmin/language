@@ -3,6 +3,8 @@
 #include <array>
 #include "SpreadsheetCell.h"
 
+#ifdef MAIN_1
+
 using namespace std;
 
 static const size_t NOT_FOUND = static_cast<size_t>(-1);
@@ -59,3 +61,5 @@ int main()
 
 	return 0;
 }
+
+#endif

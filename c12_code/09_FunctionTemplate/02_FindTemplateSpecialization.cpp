@@ -2,6 +2,9 @@
 #include <iostream>
 #include <cstring>
 #include <array>
+#include "SpreadsheetCell.h"
+
+#ifdef MAIN_2
 
 using namespace std;
 
@@ -53,3 +56,4 @@ int main()
 
 	return 0;
 }
+#endif
