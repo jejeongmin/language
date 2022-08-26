@@ -27,5 +27,8 @@ int main()
 	vector<int> myVector{ 1, 2, 3, 4 };
 	gridOfVectors.at(5, 6) = myVector;
 
+	Grid<const char*> myStringGrid;
+	myStringGrid.at(2, 2) = "hello";
+
 	return 0;
 }

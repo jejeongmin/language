@@ -10,7 +10,7 @@ void processIntGrid(Grid<int>& /*grid*/)
 	// 코드 생략
 }
 
-int main()
+int main1()
 {
 	Grid<int> myIntGrid; // int 값을 저장할 Grid 객체를 선언한다.
                          // 이때 생성자에 디폴트 인수를 적용한다.

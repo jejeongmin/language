@@ -14,7 +14,7 @@ public:
 	virtual ~Grid() = default;
 
 	// 복제 생성자와 대입 연산자를 명시적으로 디폴트로 지정한다.
-	Grid(const Grid& src) = default;
+	Grid(const Grid& src) = default;	// Grid(const Grid<T>& src) = default; 과 동일하다.
 	Grid<T>& operator=(const Grid& rhs) = default;
 
 	// 이동 생성자와 대입 연산자를 명시적으로 디폴트로 지정한다.

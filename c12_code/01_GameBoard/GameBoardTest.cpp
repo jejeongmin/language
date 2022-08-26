@@ -16,7 +16,7 @@ void processGameBoard(const GameBoard& board)
 {
 	const std::unique_ptr<GamePiece>& pawn = board.at(0, 0);
 
-	// 다음 문장은 컴파일 에러가 발생한다.
+	// 다음 문장은 컴파일 에러가 발생한다. borad 가 const 니깐.
 	//board.at(1, 2) = std::make_unique<ChessPiece>();
 }
 

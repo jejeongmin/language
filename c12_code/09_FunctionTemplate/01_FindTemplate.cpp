@@ -26,7 +26,7 @@ size_t Find(const T& value, const T(&arr)[N])
 	return Find(value, arr, N);
 }
 
-int main()
+int main1()
 {
 	int myInt = 3, intArray[] = { 1, 2, 3, 4 };
 	const size_t sizeIntArray = std::size(intArray);
