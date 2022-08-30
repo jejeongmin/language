@@ -3,6 +3,9 @@
 
 using namespace std;
 
+/*
+	파일 출력과 입력을 위해 std::ofstream 과 std::ifstream 클래스를 제공한다.
+*/
 int main(int argc, char* argv[])
 {
 	ofstream outFile("test.txt", ios_base::trunc);

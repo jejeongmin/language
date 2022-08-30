@@ -1,0 +1,3 @@
+There were 1 arguments to this program.
+They are: 
+C:\Users\admin\Source\Repos\jejeongmin\expertcplusplus20\x64\Debug\15_FileStream.exe

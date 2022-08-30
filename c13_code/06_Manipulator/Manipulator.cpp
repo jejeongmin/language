@@ -5,6 +5,10 @@
 
 using namespace std;
 
+/*
+	여기서 적용한 manipulator 는 한번 설정하면 명시적으로 리셋하기 전까지 다음 출력에 계속 반영된다.
+	단, setw 는 바로 다음 출력에만 적용된다.
+*/
 int main()
 {
 	// 부울값

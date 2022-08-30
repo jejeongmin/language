@@ -13,7 +13,7 @@ void getReservationData()
 	cin >> noskipws;
 	while (cin >> ch) {
 		if (isdigit(ch)) {
-			cin.unget();
+			cin.unget();		// 입력값이 숫자이면, cin 을 되감기해서 아래의 cin >> partySize 에서 값이 partySize 에 담길 수 있도록 한다
 			if (cin.fail())
 				cout << "unget() failed" << endl;
 			break;

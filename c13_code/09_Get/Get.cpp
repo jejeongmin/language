@@ -15,7 +15,10 @@ int main()
 	return 0;
 }
 
-
+/*
+	stream.get() 의 리턴 값을 char 가 아닌, int 타입 변수에 저장했다.
+	get() 은 EOF 에 해당하는 std::char_traits<char>::eof()를 비롯한 문자가 아닌 특수한 값을 리턴할 수 있기 때문이다.
+*/
 string readName(istream& stream)
 {
 	string name;

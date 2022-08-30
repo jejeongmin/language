@@ -3,6 +3,10 @@
 
 using namespace std;
 
+/*
+	seekg 와 seekp 을 구분하는 이유는 각각 get, put 으로 파일 스트림처럼 입력과 출력을 모두 가질 때가 있기 때문이다.
+	이럴 때는 읽는 위치와 쓰는 위치를 별도로 관리해야 한다.
+*/
 int main()
 {
 	ofstream fout("test.out");

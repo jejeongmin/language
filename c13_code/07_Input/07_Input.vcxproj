@@ -15,9 +15,6 @@
     <ClCompile Include="02_int.cpp" />
     <ClCompile Include="03_getReservationData.cpp" />
   </ItemGroup>
-  <ItemGroup>
-    <Text Include="README.txt" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{12D22A13-5DEB-4841-A56D-5C990B7DDDB8}</ProjectGuid>
