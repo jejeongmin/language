@@ -13,6 +13,9 @@
   <ItemGroup>
     <ClCompile Include="tie.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="readMe.txt" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{2F47E4A6-3872-493B-9D31-B95436F405AB}</ProjectGuid>
