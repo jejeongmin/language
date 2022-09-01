@@ -26,13 +26,13 @@ vector<int> readIntegerFile(string_view fileName)
 
 int main()
 {
-	const string fileName = "IntegerFile.txt";
+	const string fileName = "IntegerFile_none.txt";
 	vector<int> myInts;
 
 	try {
 		myInts = readIntegerFile(fileName);
 	} catch (const char* e) {
-		cerr << e << endl;
+		cerr << e << " : " << fileName << endl;
 		return 1;
 	}
 

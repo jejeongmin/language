@@ -36,7 +36,7 @@ vector<int> readIntegerFile(string_view fileName)
 
 int main()
 {
-	const string fileName = "IntegerFile.txt";
+	const string fileName = "IntegerFile_none.txt";
 	vector<int> myInts;
 
 	try {
@@ -45,6 +45,7 @@ int main()
 		cerr << e.what() << endl;
 		return 1;
 	} catch (const invalid_argument& /* e */) {
+		// 여기는 절대 코드 제어가 오지 않는다. 바로 위의 catch 문에서 먼저 다 처리되버리기 때문에.
 		// 파일 이름이 잘못된 경우를 처리한다.
 	}
 

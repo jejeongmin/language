@@ -39,11 +39,18 @@ void myTerminate()
 	exit(1);
 }
 
+/*
+	처리되지 않은 예외를 만날 경우, 기본적으로 terminate 가 호출된다.
+	set_terminate 호출을 통해 terminate 시 동작을 교체할 수 있다.
+	덤프를 남기는 등의 동작을 이렇게 수행할 수 있다.
+	set_terminate 는 새로운 terminate 동작을 지정하는 동시에, 현재 설정된 terminate 동작을 반환한다
+	반환된 terminate function 을 저장해두었다가, 나중에 custom 한 terminate 동작을 필요로하지 않는 상황이 되면 다시 복원할 수 있다.
+*/
 int main()
 {
 	set_terminate(myTerminate);
 
-	const string fileName = "IntegerFile.txt";
+	const string fileName = "IntegerFile_none.txt";
 	vector<int> myInts = readIntegerFile(fileName);
 
 	for (const auto& element : myInts) {
