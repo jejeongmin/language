@@ -19,6 +19,10 @@ int main()
 	return 0;
 }
 
+/*
+	예외 처리하게 되면 예외가 발생하는 순간, 즉시 함수에서 빠져나오기 때문에(stack 감기)
+	메모리 할당 해둔 것은 catch 문 내에서 반드시 해제 해야 한다.
+*/
 void funcOne()
 {
 	string str1;

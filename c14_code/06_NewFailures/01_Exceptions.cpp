@@ -11,8 +11,8 @@ int main()
 	cout << "Trying to allocate memory for " << integerCount << " integers." << endl;
 
 	try {
-		ptr = new int[integerCount];
-	} catch (const bad_alloc& e) {
+		ptr = new int[integerCount];	// 감당할 수 없는 메모리 할당
+	} catch (const bad_alloc& e) {		// 메모리 할당 실패할 경우 new 는 bad_alloc 예외를 던진다.
 		cerr << __FILE__ << "(" << __LINE__ << "): Unable to allocate memory: " << e.what() << endl;
 		// 메모리 할당 에러를 처리한다.
 		return 1;

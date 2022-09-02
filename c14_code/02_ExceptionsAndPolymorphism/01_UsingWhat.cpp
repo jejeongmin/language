@@ -33,7 +33,11 @@ vector<int> readIntegerFile(string_view fileName)
 
 	return integers;
 }
-
+/*
+	exception 객체는 항상 const 참조로 받는 것이 좋다.
+	exception 객체를 값으로 받으면 다형성이 적용안될 뿐 더러
+	객체 슬라이싱이 발생해 값이 짤릴 수 있다.
+*/
 int main()
 {
 	const string fileName = "IntegerFile_none.txt";

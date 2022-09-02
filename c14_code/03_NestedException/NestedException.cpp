@@ -34,6 +34,9 @@ int main()
 	} catch (const MyException& e) {
 		cout << __func__ << " caught MyException: " << e.what() << endl;
 /*
+		원래는 이렇게 좀 복잡하게 nested exception 이 있는지 체크해서 던져야 하는데
+		rethrow_if_nested 같은 헬퍼 함수를 이용할 수 있도록 정의해뒀다.
+
 		const auto* pNested = dynamic_cast<const nested_exception*>(&e);
 		if (pNested) {
 			try {
