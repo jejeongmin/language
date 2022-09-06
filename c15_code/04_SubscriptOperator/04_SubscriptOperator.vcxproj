@@ -10,6 +10,12 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Array.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ArrayTest.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{8A8E22CA-FCA3-4F8B-9F9C-39524C9FD084}</ProjectGuid>

@@ -26,7 +26,7 @@ public:
 	SpreadsheetCell& operator/=(const SpreadsheetCell& rhs);
 	SpreadsheetCell operator-() const;
 	SpreadsheetCell& operator++();   // 선행 증가
-	SpreadsheetCell operator++(int); // 후행 증가
+	SpreadsheetCell operator++(int); // 후행 증가	// 후행과 선행은 연산자의 파라메터로 구분한다.
 	SpreadsheetCell& operator--();   // 선행 감소
 	SpreadsheetCell operator--(int); // 후행 감소
 

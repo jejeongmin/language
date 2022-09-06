@@ -10,6 +10,12 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AssociativeArray.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AssociativeArrayTest.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{88D3B061-B991-4D6A-BE78-419F113E800A}</ProjectGuid>
