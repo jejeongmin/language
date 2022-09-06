@@ -10,6 +10,14 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="PointerBool.h" />
+    <ClInclude Include="SpreadsheetCell.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="PointerBoolTest.cpp" />
+    <ClCompile Include="SpreadsheetCell.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{41C49A94-ACA9-4F9D-8E7F-91306B8B97A7}</ProjectGuid>

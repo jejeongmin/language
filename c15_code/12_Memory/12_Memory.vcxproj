@@ -10,6 +10,13 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="MemoryDemo.cpp" />
+    <ClCompile Include="MemoryDemoTest.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MemoryDemo.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{E21EA2C0-C3E3-4C50-A37F-56F4F9B5DE6A}</ProjectGuid>
