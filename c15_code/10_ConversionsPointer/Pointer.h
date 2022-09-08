@@ -17,6 +17,9 @@ public:
 	T* operator->();
 	const T* operator->() const;
 
+	// () 변환 연산은 void* 로 반환하는 게, bool 로 반환하는 것보다 좋다.
+	// bool 은 NULL 과는 비교과 되지만, nullptr 과는 비교가 되지 않는다.
+	// 그리고 bool 로 반환이 가능하면, int, double 등의 값으로 의도치 않게 캐스팅 되는 결과를 초래한다.
 	operator void*() const;
 
 private:
