@@ -3,6 +3,10 @@
 
 using namespace std;
 
+/*
+	부동소수점수의 최소값(min)은 시스템에서 표현할 수있는 가장 작은 양수값인 반면
+	최저값(lowest)는 시스템에서 표현할 수 있는 가장 작은 음수값이다.
+*/
 int main()
 {
 	cout << "int:" << endl;
