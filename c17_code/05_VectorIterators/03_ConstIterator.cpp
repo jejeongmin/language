@@ -10,7 +10,6 @@ int main()
 	for (auto iter = cbegin(stringVector); iter != cend(stringVector); ++iter) {
 		cout << *iter << endl;
 	}
-
 	
 	for (const auto& element : stringVector) {
 		cout << element << endl;

@@ -21,7 +21,16 @@ private:
 bool operator<(const Error& lhs, const Error& rhs);
 std::ostream& operator<<(std::ostream& os, const Error& err);
 
-// 우선순위가 가장 높은 에러를 먼저 리턴하도록 간단히 구현한 ErrorCorrelator 클래스
+/*
+	우선순위가 가장 높은 에러를 먼저 리턴하도록 간단히 구현한 ErrorCorrelator 클래스
+
+	template <class Type, class Container= vector <Type>, class Compare= less <typename Container ::value_type>>
+	class priority_queue
+
+	기본 자료형은 vector 이다.
+	less 연산자 ( operator< ) 연산으로 T 타입의 객체끼리 비교한다.
+*/
+
 class ErrorCorrelator final
 {
 public:

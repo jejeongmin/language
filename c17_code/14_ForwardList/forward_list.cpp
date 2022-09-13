@@ -3,6 +3,11 @@
 
 using namespace std;
 
+/*
+	before_begin() 은 begin() 바로 앞단계의 iterator 를 나타내며 닫힌 범위의 시작을 나타낸다.
+	end() 가 실제 가장 마지막 노드의 다음 단계 노드인 것처럼
+	before_begin() 은 가장 첫번째 노드의 이전 단계 노드이다.
+*/
 int main()
 {
 	// forward_list 세 개를 생성한다.
@@ -26,6 +31,7 @@ int main()
 		++iter;
 	}
 	list1.insert_after(iter, cbegin(list3), cend(list3));
+	//list1.splice_after(iter, list3);
 
 	// list1의 내용을 화면에 출력한다.
 	for (auto& i : list1) {

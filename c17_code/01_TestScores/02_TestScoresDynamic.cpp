@@ -10,7 +10,7 @@ int main()
 	vector<double> doubleVector; // double 값 열 개를 담은 vector를 생성한다.
 
 	// 최댓값(max)을 double의 최솟값으로 초기화한다.
-	double max = -numeric_limits<double>::infinity();
+	double max = - numeric_limits<double>::infinity();
 
 	for (size_t i = 1; true; i++) {
 		double temp;

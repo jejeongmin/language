@@ -4,6 +4,11 @@
 
 using namespace std;
 
+/*
+	splice 는 접착, 이어붙이기라는 뜻이다.
+	splice 함수의 결과로 source list 의 노드들은 target list 로 이동한다.
+*/
+
 int main()
 {
 	// a로 시작하는 단어 리스트를 만든다.

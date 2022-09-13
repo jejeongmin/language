@@ -38,7 +38,7 @@ public:
 
 private:
 	std::vector<T> mElements;
-	typename std::vector<T>::iterator mCurrentElement;
+	typename std::vector<T>::iterator mCurrentElement;	// -> 하나 이상의 템플릿 매개변수로 정의한 타입에 접근할 때는 항상 typename 키워드를 지정해야 한다.
 };
 
 template <typename T>
@@ -61,7 +61,7 @@ void RoundRobin<T>::add(const T& element)
 	// vector를 재할당되서 mCurrentElement 반복자가 무효화될 수 있다.
 	// 공간을 절약하려면 반복자의 랜덤 액세스 기능을 최대한 활용한다.
 	// iterator features to save our spot.
-	int pos = mCurrentElement - begin(mElements);
+	int64_t pos = mCurrentElement - begin(mElements);
 
 	// 원소를 추가한다.
 	mElements.push_back(element);
@@ -79,7 +79,7 @@ void RoundRobin<T>::remove(const T& element)
 			// 가리키고 있을 때 원소를 삭제하면 mCurrentElement 반복자가 무효화된다.
 			// 삭제한 후 현재 원소의 위치를 관리하려면
 			// 반복자의 랜덤 액세스 기능을 활용한다.
-			int newPos;
+			int64_t newPos;
 
 			if (mCurrentElement == end(mElements) - 1 &&
 				mCurrentElement == it) {
@@ -88,7 +88,7 @@ void RoundRobin<T>::remove(const T& element)
 				// the beginning.
 				newPos = 0;
 			} else if (mCurrentElement <= it) {
-				// O그렇지 않고 mCurrentElement가 삭제하려는 원소나 그 앞의 원소를
+				// 그렇지 않고 mCurrentElement가 삭제하려는 원소나 그 앞의 원소를
 				// 가리키고 있다면 위치는 이전과 같다.
 				newPos = mCurrentElement - begin(mElements);
 			} else {
