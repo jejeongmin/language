@@ -10,9 +10,16 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BankDB.cpp" />
+    <ClCompile Include="BankDBTest.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BankDB.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{A196DF64-A34A-4F2E-B213-E187FFFCAAB9}</ProjectGuid>
+    <ProjectGuid>{FD587DBD-6637-4FA4-B5A0-9016852A178C}</ProjectGuid>
     <RootNamespace>My03HelloVariables</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
