@@ -25,6 +25,12 @@ void BuddyList::removeBuddy(const string& name, const string& buddy)
 			// 일치하는 원소를 찾았다면 맵에서 제거한다.
 			mBuddies.erase(iter);
 			break;
+			/*
+				구간 iterator 데이터를 위와 같은 방식으로 지우는 건 지양해야 한다.
+				iter = mBuddies.erase(iter); <- 이게 정확한 코드인데
+				mBuddies 에 특정 key 에 대한 value(친구정보)가 1개만 unique하게 있고
+				그걸 삭제하면 break 로 루프를 바로 빠져나오니깐 이 예제에서는 버그는 아니다.
+			*/
 		}
 	}
 }

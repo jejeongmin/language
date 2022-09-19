@@ -10,9 +10,16 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AccessList.cpp" />
+    <ClCompile Include="AccessListTest.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AccessList.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{A196DF64-A34A-4F2E-B213-E187FFFCAAB9}</ProjectGuid>
+    <ProjectGuid>{57031AA1-4F22-412C-8708-C602CF5C2583}</ProjectGuid>
     <RootNamespace>My03HelloVariables</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>

@@ -21,6 +21,10 @@ void printMap(const T& m)
 	cout << "-------" << endl;
 }
 
+/*
+	시스템마다 해시함수 구현과 unordered_map 의 구현이 다를 수 있기 때문에 결과는 다를 수 있다.
+	이 코드를 테스트한 windows 10, visual studio 2017 에서는 "Marc G." 의 버킷 인덱스에서 2개의 값이 포함되어 있다.
+*/
 int main()
 {
 	// 해시 테이블을 생성한다.
@@ -41,6 +45,7 @@ int main()
 	cout << "Marc G. is in bucket " << bucket
 	     << " which contains the following "
 	     << phoneBook.bucket_size(bucket) << " elements:" << endl;
+
 	// 버킷에 있는 원소에 대한 시작과 끝 반복자를 가져온다.
 	// 여기서는 타입을 'auto'로 지정했다. 컴파일러는 두 반복자 타입을
 	// unordered_map<string, string>::const_local_iterator로 추론한다.
@@ -53,6 +58,7 @@ int main()
 	cout << "-------" << endl;
 
 	// 해시 테이블에 대한 통계를 화면에 출력한다.
+	// load_factor 는 버킷당 평균 원소 수를 리턴한다.
 	cout << "There are " << phoneBook.bucket_count() << " buckets." << endl;
 	cout << "Average number of elements in a bucket is " << phoneBook.load_factor() << endl;
 
