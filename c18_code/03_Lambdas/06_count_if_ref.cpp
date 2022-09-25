@@ -9,7 +9,7 @@ int main()
 	vector<int> vec = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 	int value = 3;
 	int cntLambdaCalled = 0;
-	int cnt = count_if(cbegin(vec), cend(vec),
+	auto cnt = count_if(cbegin(vec), cend(vec),
 		[value, &cntLambdaCalled](int i){ ++cntLambdaCalled; return i > value; });
 	cout << "The lambda expression was called " << cntLambdaCalled
 		<< " times." << endl;

@@ -7,6 +7,7 @@ using namespace std;
 int main()
 {
 	// 값이 100보다 큰지 판단하는 제네릭 람다 표현식을 정의한다.
+	// 인자를 auto 로 선언하면 여러 타입에 대해 generic 하게 사용할 수 있다.
 	auto isGreaterThan100 = [](auto i){ return i > 100; };
 
 	// 위에서 정의한 제네릭 람다 표현식을 정수 벡터에 적용한다.

@@ -7,7 +7,7 @@ using namespace std;
 
 double arithmeticMean(const vector<int>& nums)
 {
-	double sum = accumulate(cbegin(nums), cend(nums), 0);
+	double sum = accumulate(cbegin(nums), cend(nums), 0);// 합에 대한 초기값을 세번째 인자로 받는다.  0 은 덧셈의 항등원,
 	return sum / nums.size();
 }
 
@@ -18,7 +18,7 @@ int product(int num1, int num2)
 
 double geometricMean(const vector<int>& nums)
 {
-	double mult = accumulate(cbegin(nums), cend(nums), 1, product);
+	double mult = accumulate(cbegin(nums), cend(nums), 1, product);	// 곱에 대한 초기값을 세번째 인자로 받는다. 1은 곱셈의 항등원
 	return pow(mult, 1.0 / nums.size());
 }
 
