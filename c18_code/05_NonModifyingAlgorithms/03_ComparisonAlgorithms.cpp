@@ -67,7 +67,9 @@ int main()
 	//	}
 	//}
 
-	// 컨테이너를 정렬한다.
+	// 컨테이너를 정렬한다. 사전에서 단어를 찾는 것 과 같은 순서로 두 값을 비교해서
+	// 사전식 검색에서 먼저 검색되는 값인지 조사한다.
+	// lexicographical order -> 사전식 순서
 	if (lexicographical_compare(cbegin(myVector), cend(myVector), cbegin(myList), cend(myList))) {
 		cout << "The vector is lexicographically first." << endl;
 	} else {

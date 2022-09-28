@@ -40,6 +40,10 @@ void SumAndProduct::operator()(int value)
 	mProduct *= value;
 }
 
+/*
+	functor 를 사용하는 경우 반드시 for_each 의 리턴값을 사용해야 한다.
+	for_each 로 이 functor의 복제본이 전달됐다가 호출이 끝나면 복제본이 리턴되기 때문이다.
+*/
 int main()
 {
 	vector<int> myVector;

@@ -32,7 +32,8 @@ int main()
 	// 람다 표현식 사용
 	// auto it = find_if(begin(myVector), endIter, [](int i){ return i < 100; });
 
-	// C++17 이전의 std::not1()
+	// C++17 이전의 std::not1(),	피연산자가 1개이면 not1 , 이항 함수에 대해서는 not2
+	// 지금은 not_fn 으로 대체 되었다.
 	// function<bool(int)> f = perfectScore;
 	// auto it = find_if(begin(myVector), endIter, not1(f));
 

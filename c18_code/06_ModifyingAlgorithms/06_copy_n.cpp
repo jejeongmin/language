@@ -22,6 +22,10 @@ void populateContainer(Container& cont)
 	}
 }
 
+/*
+	copy_n 은 경계값 검사를 하지 않기 때문에 
+	end()를 초과하지 않는 복사가 되도록 검사하는 코드를 직접 작성해야 한다.
+*/
 int main()
 {
 	vector<int> vec1, vec2;

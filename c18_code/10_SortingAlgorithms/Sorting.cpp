@@ -22,6 +22,11 @@ void populateContainer(Container& cont)
 	}
 }
 
+/*
+	stable_sort() 는 정렬 후에 원본에 나온 순서를 그대로 유지한다.
+	is_sorted() 는 주어진 범위가 정렬된 상태면 true 를 리턴한다.
+	is_sorted_until() 은 반복자를 리턴하는데, 이 반복자 앞에 나온 원소까지는 모두 정렬된 상태이다.
+*/
 int main()
 {
 	vector<int> vec;

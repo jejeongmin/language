@@ -21,6 +21,9 @@ void populateContainer(Container& cont)
 	}
 }
 
+/*
+	값을 추가해도 계속 정렬된 상태를 유지하는 vector 예제
+*/
 int main()
 {
 	vector<int> vec;

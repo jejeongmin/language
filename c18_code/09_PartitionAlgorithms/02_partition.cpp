@@ -21,6 +21,10 @@ void populateContainer(Container& cont)
 	}
 }
 
+/*
+	partition() 알고리즘은 predicate 에서 true 를 리턴하는 원소가 false 를 리턴하는 원소보다
+	앞에 나오도록 정렬한다.
+*/
 int main()
 {
 	vector<int> vec;

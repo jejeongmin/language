@@ -23,7 +23,7 @@ int main()
 	
 	// std::bind와 투명 함수 객체를 이용하는 C++14 방식 코드
 	auto it = find_if(begin(myVector), endIter,
-		bind(greater_equal<>(), placeholders::_1, 100));
+		bind(greater_equal<>(), placeholders::_1, 100));	// 두번째 매개변수는 100 으로 고정
 
 	// 권장하는 C++11/C++14 방식: 람다를 사용한다.
 	//auto it = find_if(begin(myVector), endIter, [](int i){ return i >= 100; });

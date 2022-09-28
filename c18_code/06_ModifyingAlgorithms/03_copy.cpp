@@ -21,6 +21,11 @@ void populateContainer(Container& cont)
 	}
 }
 
+/*
+	copy 건, copy_backward 건 copy source 와 copy target 이 겹치면 안된다.
+	특수한 조건에는 겹치는 걸 허락하는 경우가 있다고 하지만,
+	그런 특수한 경우는 기억도 하지 말고 쓰지 말자.
+*/
 int main()
 {
 	vector<int> vec1, vec2;

@@ -6,6 +6,11 @@
 
 using namespace std;
 
+/*
+	메서드 포인터를 호출하는 코드는 일반 함수 포인터를 호출할 때와 다르다.
+	메서드 포인터는 반드시 객체의 문맥 안에서 호출해야 하기 때문이다.
+	c++은 이를 위해 mem_fn() 이라는 변환 한수를 제공한다.
+*/
 void findEmptyString(const vector<string>& strings)
 {
 	auto endIter = end(strings);

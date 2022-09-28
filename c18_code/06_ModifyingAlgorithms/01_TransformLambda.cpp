@@ -21,6 +21,9 @@ void populateContainer(Container& cont)
 	}
 }
 
+/*
+	transform 은 주어진 범위에 있는 모든 원소마다 콜백을 적용해서 새 원소를 생성한다.
+*/
 int main()
 {
 	vector<int> myVector;

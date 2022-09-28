@@ -4,6 +4,7 @@
 
 using namespace std;
 
+// 두 시퀀스의 내적을 구한다.
 int main()
 {
 	vector<int> v1{ 1, 2, 3, 4 };

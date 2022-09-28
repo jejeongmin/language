@@ -29,7 +29,7 @@ int main()
 
 	vec2.resize(size(vec1));
 
-	copy_backward(cbegin(vec1), cend(vec1), end(vec2));
+	copy_backward(cbegin(vec1), cend(vec1), end(vec2));	// end(vec2) 에 주목, 뒤에부터 복사하니깐
 
 	for (const auto& i : vec2) { cout << i << " "; }
 

@@ -6,6 +6,10 @@
 
 using namespace std;
 
+/*
+	펑터로 지정할 때 함수 호출 연산자()는 const 로 지정해야 한다.
+	그래야 여러번 호출해도 객체의 내부 상태를 일관성 있게 유지할 수 있다.
+*/
 class myIsDigit
 {
 public:

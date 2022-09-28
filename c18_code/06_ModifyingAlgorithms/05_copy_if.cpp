@@ -30,7 +30,7 @@ int main()
 	vec2.resize(size(vec1));
 	auto endIterator = copy_if(cbegin(vec1), cend(vec1),
 		begin(vec2), [](int i){ return i % 2 == 0; });
-	vec2.erase(endIterator, end(vec2));
+	vec2.erase(endIterator, end(vec2));	// 남는 공간은 삭제
 	for (const auto& i : vec2) { cout << i << " "; }
 
 	cout << endl;
