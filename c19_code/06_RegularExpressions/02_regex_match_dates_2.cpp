@@ -4,8 +4,13 @@
 
 using namespace std;
 
+/*
+	smatch 객체의 첫번째 원소 - m[0] - 는 패턴 전체에 매칭되는 스트링을 담는다. 
+*/
+
 int main()
 {
+	// 3개의 캡쳐그룹 - () - 으로 등록되어 있다. 
 	regex r("(\\d{4})/(0?[1-9]|1[0-2])/(0?[1-9]|[1-2][0-9]|3[0-1])");
 	while (true) {
 		cout << "Enter a date (year/month/day) (q=quit): ";

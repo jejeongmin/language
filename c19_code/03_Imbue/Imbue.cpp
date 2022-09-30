@@ -9,7 +9,7 @@ int main()
 	wcout.imbue(locale(""));
 	wcout << 32767 << endl;
 
-	// 클래식/뉴트럴 로케일
+	// 클래식/뉴트럴 로케일 <- 디폴트 로케일
 	wcout.imbue(locale("C"));
 	wcout << 32767 << endl;
 

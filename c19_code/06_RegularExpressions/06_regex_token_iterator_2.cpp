@@ -14,7 +14,7 @@ int main()
 		if (!getline(cin, str) || str == "q")
 			break;
 
-		vector<int> indices{ 2, 3 };
+		vector<int> indices{ 2, 3 };	// 캡쳐 그룹의 인덱스를 vector 로 받는다.
 		const sregex_token_iterator end;
 		for (sregex_token_iterator iter(cbegin(str), cend(str), reg, indices);
 			iter != end; ++iter) {

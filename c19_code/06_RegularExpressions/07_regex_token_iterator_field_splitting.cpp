@@ -4,6 +4,12 @@
 
 using namespace std;
 
+/*
+	sregex_token_iterator 는 토큰화 작업에 유리하다.
+	c 의 strtok 함수를 사용하는 것보다 안전하고 유연하다.
+	sregex_token_iterator 의 반복할 캡쳐 그룹 인덱스를 -1 로 지정하면
+	토큰화 모드로 작동한다.
+*/
 int main()
 {
 	regex reg(R"(\s*[,;]\s*)");

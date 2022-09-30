@@ -3,6 +3,9 @@
 
 using namespace std;
 
+/*
+	로케일은 날짜 포맷, 시간 포맷, 숫자 포맷 등으로 구성되는데, 이러한 요소를 패킷(facet)이라고 부른다.
+*/
 int main()
 {
 	locale locUSEng("en-US");       // 윈도우
