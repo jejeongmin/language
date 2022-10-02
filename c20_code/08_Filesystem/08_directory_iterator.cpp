@@ -26,7 +26,7 @@ void processPath(const path& p, size_t level = 0)
 
 int main()
 {
-	path p(LR"(D:\Foo\Bar)");
+	path p(LR"(D:\powershell)");
 	processPath(p);
 
 	return 0;

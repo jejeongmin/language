@@ -13,9 +13,9 @@ int main()
 	cout << "t1 = (" << get<0>(t1) << ", " << get<1>(t1)
 		 << ", " << get<2>(t1) << ")" << endl;
 	cout << "Type of get<1>(t1) = " << typeid(get<1>(t1)).name() << endl;
-	cout << "String = " << get<string>(t1) << endl;
+	cout << "String = " << get<string>(t1) << endl;	// 인덱스를 지정하지 않고 타입을 지정하는 방식으로도 값을 가져올 수 있다. 단 해당 타입이 튜플 정의 내에서 1개여야 한다.
 	cout << "Tuple Size = " << tuple_size<MyTuple>::value << endl;
-	cout << "Tuple Size = " << tuple_size<decltype(t1)>::value << endl;
+	cout << "Tuple Size = " << tuple_size<decltype(t1)>::value << endl;	// decltype 을 사용하면 정확한 타입을 기재하지 않아도 된다
 
 	double d = 3.14;
 	string str1 = "Test";
@@ -26,7 +26,7 @@ int main()
 
 	cout << "d = " << d << endl;
 	get<1>(t2) *= 2;
-	//get<2>(t2) *= 2;
+	//get<2>(t2) *= 2;		const 참조이기 때문에 변경하려고 하면 컴파일 에러.
 	cout << "d = " << d << endl;
 
 	return 0;

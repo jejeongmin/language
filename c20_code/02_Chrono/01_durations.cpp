@@ -5,6 +5,9 @@
 using namespace std;
 using namespace std::chrono;
 
+/*
+	chrono 는 duration / clock / time_point 3 가지 요소로 구성된다
+*/
 int main()
 {
 	// 한 틱이 60초인 duration을 정의한다.
@@ -50,7 +53,10 @@ int main()
 	duration<double, ratio<60>> d8(d7);
 	cout << d7.count() << " seconds = " << d8.count() << " minutes" << endl;
 
-	// duration_cast()을 이용하여 초 단위 d7을 정수형 분으로 변환한다.
+	/*
+		duration_cast()을 이용하여 초 단위 d7을 정수형 분으로 변환한다
+		0.5 분을 long(정수) 타입으로 캐스팅해서 0분으로 절삭되었다.
+	*/	
 	auto d8_ = duration_cast<duration<long, ratio<60>>>(d7);    // minutes
 	cout << d8_.count() << endl;
 
@@ -64,7 +70,7 @@ int main()
 	auto t = hours(1) + minutes(23) + seconds(45);
 	cout << seconds(t).count() << " seconds" << endl;
 
-	// 표준 사용자 정의 리터럴
+	// 표준 사용자 정의 리터럴, h min s ms us ns 등
 	auto myDuration = 42min;    // 42분
 
 	return 0;

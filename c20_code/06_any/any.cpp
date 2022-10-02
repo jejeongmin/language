@@ -5,6 +5,9 @@
 
 using namespace std;
 
+/*
+	any 에 담긴 값을 구하려면 any_cast 를 사용해야 한다.
+*/
 int main()
 {
 	any empty;
@@ -26,10 +29,8 @@ int main()
 		cout << "Exception: " << ex.what() << endl;
 	}
 
-
 	any something(3);              // 이제 정수 값 하나를 담고 있다.
 	something = "An std::string"s; // 이렇게 하면 스트링 값을 담게 된다.
-
 
 	vector<any> v;
 	v.push_back(any(42));

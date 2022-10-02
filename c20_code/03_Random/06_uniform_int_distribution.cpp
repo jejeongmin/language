@@ -16,7 +16,7 @@ int main()
 	random_device seeder;
 	const auto seed = seeder.entropy() ? seeder() : time(nullptr);
 	mt19937 eng(static_cast<mt19937::result_type>(seed));
-	uniform_int_distribution<int> dist(kStart, kEnd);
+	uniform_int_distribution<int> dist(kStart, kEnd);			// ±Õµî ºÐÆ÷
 	auto gen = bind(dist, eng);
 	map<int, int> m;
 	for (unsigned int i = 0; i < kIterations; ++i) {

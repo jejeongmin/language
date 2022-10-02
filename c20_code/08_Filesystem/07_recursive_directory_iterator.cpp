@@ -18,17 +18,17 @@ void processPath(const path& p)
 		auto& entry = *iter;
 
 		if (is_regular_file(entry)) {
-			cout << spacer << "File: " << entry;
+			cout << spacer << "File: " << entry.path();
 			cout << " (" << file_size(entry) << " bytes)" << endl;
 		} else if (is_directory(entry)) {
-			cout << spacer << "Dir: " << entry << endl;
+			cout << spacer << "Dir: " << entry.path() << endl;
 		}
 	}
 }
 
 int main()
 {
-	path p(LR"(D:\Foo\Bar)");
+	path p(LR"(D:\powershell)");
 	processPath(p);
 
 	return 0;

@@ -11,6 +11,5 @@ int main()
 	auto[i, str, b] = t1;
 	cout << "Decomposed: i = " << i << ", str = \"" << str << "\", b = " << b << endl;
 
-
 	return 0;
 }

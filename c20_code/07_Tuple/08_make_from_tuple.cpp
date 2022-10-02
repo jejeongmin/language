@@ -13,6 +13,9 @@ private:
 	int mInt;
 };
 
+/*
+	템플릿으로 메타 프로그래밍할 때나 유용할 듯
+*/
 int main()
 {
 	auto myTuple = make_tuple("Hello world.", 42);

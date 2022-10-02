@@ -6,6 +6,13 @@
 using namespace std;
 using namespace std::chrono;
 
+/*
+	chrono 에서 clock 은 system_clock, steady_clock, high_resolution_clock 3가지를 제공한다.
+
+	system_clock 과 steady_clock 의 차이는 아래 포스팅으로 대신한다.
+	https://linkmemo.tistory.com/181
+	http://egloos.zum.com/sweeper/v/2996847
+*/
 int main()
 {
 	// 현재 시각을 time_point 타입으로 가져온다.

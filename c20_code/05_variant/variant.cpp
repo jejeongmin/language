@@ -4,6 +4,14 @@
 
 using namespace std;
 
+/*
+	visitor pattern
+	https://brownbears.tistory.com/575
+	https://thecodinglog.github.io/design/2019/10/29/visitor-pattern.html
+	https://johngrib.github.io/wiki/pattern/visitor/
+	https://johngrib.github.io/wiki/pattern/visitor/
+*/
+
 class MyVisitor
 {
 public:
@@ -20,7 +28,7 @@ int main()
 	v = "An std::string"s;
 
 	cout << "Type index: " << v.index() << endl;
-	cout << "Contains an int: " << holds_alternative<int>(v) << endl;
+	cout << "Contains an int: " << holds_alternative<int>(v) << endl;	// variant 가 인수로 지정한 타입의 값을 담고 있는지 확인할 수 있다.
 
 	cout << std::get<string>(v) << endl;
 	try {
@@ -34,7 +42,8 @@ int main()
 	cout << "retrieved string: " << (theString ? *theString : "null") << endl;
 	cout << "retrieved int: " << (theInt ? *theInt : 0) << endl;
 
-	visit(MyVisitor(), v);
+	// variant 에 대한 비지터 패턴을 적용할 때 사용한다. 함수 호출 연산자가 다양한 버전으로 오버로딩되어 있을 때 각 타입을 variant 로 표현할 수 있다.
+	std::visit(MyVisitor(), v);
 
 	return 0;
 }

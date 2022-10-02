@@ -4,6 +4,9 @@
 using namespace std;
 using namespace std::filesystem;
 
+/*
+	L - wide character, R - raw string
+*/
 int main()
 {
 	path p1(LR"(D:\Foo\Bar)");

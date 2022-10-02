@@ -16,7 +16,7 @@ int main()
 	random_device seeder;
 	const auto seed = seeder.entropy() ? seeder() : time(nullptr);
 	mt19937 eng(static_cast<mt19937::result_type>(seed));
-	normal_distribution<double> dist(50, 10);
+	normal_distribution<double> dist(50, 10);			// 평균 50, 표준편차 10
 	auto gen = bind(dist, eng);
 	map<int, int> m;
 	for (unsigned int i = 0; i < kIterations; ++i) {
