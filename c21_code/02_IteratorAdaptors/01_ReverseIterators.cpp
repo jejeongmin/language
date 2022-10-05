@@ -22,6 +22,11 @@ void populateContainer(Container& cont)
 	}
 }
 
+/*
+	reverse_itertor 의 base() 메서드를 호출하면 (원래 순서) iterator 를 구할 수 있다.
+	단 base()가 리턴한 iterator 는 reverse_iterator 가 참조하는 원소의 바로 다음 지점을 가리킨다.
+	따라서 참조하는 원소를 구하려면 반드시 1을 빼야 한다.
+*/
 int main()
 {
 	vector<int> myVector;

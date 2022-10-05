@@ -4,6 +4,9 @@
 
 using namespace std;
 
+/*
+	컨테이너 인터페이스만 가이드라인에 따른다면 알고리즘은 독립적으로 구현 가능하다
+*/
 template <typename InputIterator, typename OutputIterator, typename Predicate>
 OutputIterator find_all(InputIterator first, InputIterator last,
 	OutputIterator dest, Predicate pred)

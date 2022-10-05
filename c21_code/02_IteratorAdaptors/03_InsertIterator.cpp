@@ -34,6 +34,7 @@ int main()
 	copy_if(cbegin(vectorOne), cend(vectorOne), inserter,
 		[](int i) { return i != 100; });
 
+	// inserter() 함수를 이용한 구현
 	//copy_if(cbegin(vectorOne), cend(vectorOne),
 	//	inserter(setOne, begin(setOne)),
 	//	[](int i) { return i != 100; });

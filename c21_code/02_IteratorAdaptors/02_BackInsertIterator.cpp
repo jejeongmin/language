@@ -32,6 +32,7 @@ int main()
 	copy_if(cbegin(vectorOne), cend(vectorOne), inserter,
 		[](int i){ return i != 100; });
 
+	// back_inserter() 함수를 이용한 구현
 	//copy_if(cbegin(vectorOne), cend(vectorOne),
 	//	back_inserter(vectorTwo), [](int i) { return i != 100; });
 
