@@ -216,6 +216,197 @@ namespace ProCpp {
 
 
 
+	//////////////////////
+	template<typename HashMap>
+	const_hash_map_reverse_iterator<HashMap>::const_hash_map_reverse_iterator(size_t bucket, list_iterator_type listIt, const HashMap* hashmap)
+		: mBucketIndex(bucket), mListIterator(listIt), mHashmap(hashmap)
+	{
+	}
+
+	// 실제 원소에 대한 레퍼런스를 리턴한다.
+	template<typename HashMap>
+	const typename const_hash_map_reverse_iterator<HashMap>::value_type&
+		const_hash_map_reverse_iterator<HashMap>::operator*() const
+	{
+		return *mListIterator;
+	}
+
+	// 실제 원소에 대한 포인터를 리턴한다.
+	// 그래서 컴파일러는 원하는 필드에 접근할 때 ->를 적용한다.
+	template<typename HashMap>
+	const typename const_hash_map_reverse_iterator<HashMap>::value_type*
+		const_hash_map_reverse_iterator<HashMap>::operator->() const
+	{
+		return &(*mListIterator);
+	}
+
+	// 구체적인 작업은 increment() 헬퍼 메서드로 처리한다.
+	template<typename HashMap>
+	const_hash_map_reverse_iterator<HashMap>& const_hash_map_reverse_iterator<HashMap>::operator++()
+	{
+		increment();
+		return *this;
+	}
+
+	// 구체적인 작업은 increment() 헬퍼 메서드로 처리한다.
+	template<typename HashMap>
+	const_hash_map_reverse_iterator<HashMap> const_hash_map_reverse_iterator<HashMap>::operator++(int)
+	{
+		auto oldIt = *this;
+		increment();
+		return oldIt;
+	}
+
+	// 구체적인 작업은 decrement() 헬퍼 메서드로 처리한다.
+	template<typename HashMap>
+	const_hash_map_reverse_iterator<HashMap>& const_hash_map_reverse_iterator<HashMap>::operator--()
+	{
+		decrement();
+		return *this;
+	}
+
+	// 구체적인 작업은 decrement() 헬퍼 메서드로 처리한다.
+	template<typename HashMap>
+	const_hash_map_reverse_iterator<HashMap> const_hash_map_reverse_iterator<HashMap>::operator--(int)
+	{
+		auto oldIt = *this;
+		decrement();
+		return oldIt;
+	}
+
+	template<typename HashMap>
+	bool const_hash_map_reverse_iterator<HashMap>::operator==(const const_hash_map_reverse_iterator<HashMap>& rhs) const
+	{
+		// 반복자가 가리키는 hash_map을 포함한 모든 필드가 반드시 같아야 한다.
+		return (mHashmap == rhs.mHashmap &&
+			mBucketIndex == rhs.mBucketIndex &&
+			mListIterator == rhs.mListIterator);
+	}
+
+	template<typename HashMap>
+	bool const_hash_map_reverse_iterator<HashMap>::operator!=(const const_hash_map_reverse_iterator<HashMap>& rhs) const
+	{
+		return !(*this == rhs);
+	}
+
+	// mListIterator가 이미 마지막 원소 바로 다음을 가리키고 있다면 비정상적으로 작동하거나
+	// 잘못된 결과가 나온다.
+	// element, or is otherwise invalid.
+	template<typename HashMap>
+	void const_hash_map_reverse_iterator<HashMap>::increment()
+	{
+		// mListIterator는 한 버킷에 대한 반복자다. 하나 증가시킨다.
+		++mListIterator;
+
+		// 현재 버킷의 끝에 있다면 다음 버킷을 찾는다.
+		auto& buckets = mHashmap->mBuckets;
+		if (mListIterator == end(buckets[mBucketIndex])) {
+			for (size_t i = mBucketIndex + 1; i < buckets.size(); i++) {
+				if (!buckets[i].empty()) {
+					// 비어 있지 않은 버킷을 발견한 경우.
+					// mListIterator가 그 버킷의 첫번째 원소를 가리키게 한다.
+					mListIterator = begin(buckets[i]);
+					mBucketIndex = i;
+					return;
+				}
+			}
+			// 더 이상 비어 있지 않은 버킷이 없으면
+			// mListIterator가 마지막 리스트의 끝 반복자를 가리키도록 설정한다.
+			mBucketIndex = buckets.size() - 1;
+			mListIterator = end(buckets[mBucketIndex]);
+		}
+	}
+
+	// mListIterator가 첫 번째 원소를 가리키고 있을 때의 동작은 정의되어 있지 않다.
+	// 이 상태에서 감소하면 문제가 발생한다.
+	template<typename HashMap>
+	void const_hash_map_reverse_iterator<HashMap>::decrement()
+	{
+		// mListIterator는 한 버킷에 대한 반복자다.
+		// 현재 버킷의 시작 지점을 가리키고 있다면 감소시키지 않고,
+		// 현재 지점보다 앞에 있는 버킷 중에서 비어 있지 않는 것을 찾는다.
+		auto& buckets = mHashmap->mBuckets;
+		if (mListIterator == begin(buckets[mBucketIndex])) {
+			for (int i = mBucketIndex - 1; i >= 0; --i) {
+				if (!buckets[i].empty()) {
+					mListIterator = --end(buckets[i]);
+					mBucketIndex = i;
+					return;
+				}
+			}
+			// 더 이상 비어 있지 않은 버킷이 없다면 감소시키면 안 된다.
+			// mListIterator가 마지막 리스트의 끝 반복자를 가리키도록 설정한다.
+			mBucketIndex = buckets.size() - 1;
+			mListIterator = end(buckets[mBucketIndex]);
+		}
+		else {
+			// 버킷의 시작 지점에 아직 도달하지 않았으므로 한 칸 앞으로 이동한다.
+			--mListIterator;
+		}
+	}
+
+
+
+
+	template<typename HashMap>
+	hash_map_reverse_iterator<HashMap>::hash_map_reverse_iterator(size_t bucket, list_iterator_type listIt, HashMap* hashmap)
+		: const_hash_map_reverse_iterator<HashMap>(bucket, listIt, hashmap)
+	{
+	}
+
+	// 실제 원소에 대한 레퍼런스를 리턴한다.
+	template<typename HashMap>
+	typename hash_map_reverse_iterator<HashMap>::value_type&
+		hash_map_reverse_iterator<HashMap>::operator*()
+	{
+		return const_cast<value_type&>(*this->mListIterator);
+	}
+
+	// 실제 원소에 대한 포인터를 리턴한다. 그래서 컴파일러는 원하는 필드에 접근할 때->를 사용한다.
+	template<typename HashMap>
+	typename hash_map_reverse_iterator<HashMap>::value_type*
+		hash_map_reverse_iterator<HashMap>::operator->()
+	{
+		return const_cast<value_type*>(&(*this->mListIterator));
+	}
+
+	// 구체적인 작업은 베이스 클래스의 increment() 헬퍼 메서드로 처리한다.
+	template<typename HashMap>
+	hash_map_reverse_iterator<HashMap>& hash_map_reverse_iterator<HashMap>::operator++()
+	{
+		this->increment();
+		return *this;
+	}
+
+	// 구체적인 작업은 베이스 클래스의 increment() 헬퍼 메서드로 처리한다.
+	template<typename HashMap>
+	hash_map_reverse_iterator<HashMap> hash_map_reverse_iterator<HashMap>::operator++(int)
+	{
+		auto oldIt = *this;
+		this->increment();
+		return oldIt;
+	}
+
+	//구체적인 작업은 베이스 클래스의 decrement() 헬퍼 메서드로 처리한다.
+	template<typename HashMap>
+	hash_map_reverse_iterator<HashMap>& hash_map_reverse_iterator<HashMap>::operator--()
+	{
+		this->decrement();
+		return *this;
+	}
+
+	//구체적인 작업은 베이스 클래스의 decrement() 헬퍼 메서드로 처리한다.
+	template<typename HashMap>
+	hash_map_reverse_iterator<HashMap> hash_map_reverse_iterator<HashMap>::operator--(int)
+	{
+		auto oldIt = *this;
+		this->decrement();
+		return oldIt;
+	}
+
+	//////////////////////
+
+
 
 	template <typename Key, typename T, typename KeyEqual, typename Hash>
 	void swap(hash_map<Key, T, KeyEqual, Hash>& first, hash_map<Key, T, KeyEqual, Hash>& second) noexcept
@@ -291,7 +482,7 @@ namespace ProCpp {
 	template <typename Key, typename T, typename KeyEqual, typename Hash>
 	bool hash_map<Key, T, KeyEqual, Hash>::operator==(const hash_map_type& rhs) const
 	{
-		// 반복자가 가리키는 hash_map을 포함한 모든 필드가 반드시 같아야 한다.
+		// 크기와 벡터의 내용이 같아야 한다.
 		return (mSize == rhs.mSize &&
 			mBuckets == rhs.mBuckets);
 	}
@@ -533,17 +724,17 @@ namespace ProCpp {
 	{
 		if (mSize == 0) {
 			// 특수한 경우: 원소가 없으면 끝 반복자를 리턴한다.
-			return end();
+			return rend();
 		}
 
 		// 원소가 최소 하나라도 있다면 첫 번째 원소를 검색한다.
-		for (size_t i = 0; i < mBuckets.size(); ++i) {
+		for (size_t i = mBuckets.size()-1; i > 0 ; --i) {
 			if (!mBuckets[i].empty()) {
 				return hash_map_iterator<hash_map_type>(i, std::begin(mBuckets[i]), this);
 			}
 		}
 		// 여기까지 올 일은 없지만 혹시라도 오게 되면 끝 반복자를 리턴한다.
-		return end();
+		return rend();
 	}
 
 	template <typename Key, typename T, typename KeyEqual, typename Hash>
@@ -576,8 +767,8 @@ namespace ProCpp {
 		hash_map<Key, T, KeyEqual, Hash>::rend()
 	{
 		// 여기서 끝 반복자는 마지막 버킷에 있는 리스트의 끝 반복자다.
-		size_t bucket = mBuckets.size() - 1;
-		return hash_map_iterator<hash_map_type>(bucket, std::end(mBuckets[bucket]), this);
+		size_t bucket = 0;
+		return hash_map_iterator<hash_map_type>(bucket, std::begin(mBuckets[bucket]), this);
 	}
 
 	template <typename Key, typename T, typename KeyEqual, typename Hash>
@@ -600,7 +791,7 @@ namespace ProCpp {
 	typename hash_map<Key, T, KeyEqual, Hash>::const_iterator
 		hash_map<Key, T, KeyEqual, Hash>::rbegin() const
 	{
-		// const_cast를 이용하여 begin()의 non-const 버전을 호출한다.
+		// const_cast를 이용하여 rbegin()의 non-const 버전을 호출한다.
 		// 그러면 const_iterator로 변환할 수 있는 반복자로 변환한다.
 		return const_cast<hash_map_type*>(this)->rbegin();
 	}
