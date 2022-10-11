@@ -27,8 +27,6 @@ namespace ProCpp {
 	};
 
 
-
-
 	// const_hash_map_iterator 클래스 정의
 	template <typename HashMap>
 	class const_hash_map_iterator
@@ -113,8 +111,6 @@ namespace ProCpp {
 	};
 
 
-
-
 	template <typename Key, typename T,
 		typename KeyEqual = std::equal_to<>,
 		typename Hash = hash<Key>>
@@ -136,9 +132,13 @@ namespace ProCpp {
 
 	private:
 		using ListType = std::list<value_type>;
+
 	public:
 		using local_iterator = typename ListType::iterator;
 		using const_local_iterator = typename ListType::const_iterator;
+
+		using local_reverse_iterator = typename ListType::reverse_iterator;
+		using const_local_reverse_iterator = typename ListType::const_reverse_iterator;
 
 		// iterator 클래스는 hash_map의 모든 원소에 접근할 수 있어야 한다.
 		friend class hash_map_iterator<hash_map_type>;
@@ -170,15 +170,28 @@ namespace ProCpp {
 		// 이동 대입 연산자
 		hash_map_type& operator=(hash_map_type&& rhs) noexcept;
 		// 이니셜라이저 리스트 대입 연산자
-		hash_map_type& operator=(std::initializer_list<value_type> il);
+		hash_map_type& operator=				(std::initializer_list<value_type> il);
+		// 비교 연산자 구현
+		bool operator!=(const hash_map_type& rhs) const;
+		bool operator==(const hash_map_type& rhs) const;
 
 		// 반복자 메서드
 		iterator begin();
 		iterator end();
+
+		iterator rbegin();
+		iterator rend();
+
 		const_iterator begin() const;
 		const_iterator end() const;
 		const_iterator cbegin() const;
 		const_iterator cend() const;
+
+		const_iterator rbegin() const;
+		const_iterator rend() const;
+		const_iterator crbegin() const;
+		const_iterator crend() const;
+		// reverse_interator
 
 		// 크기 관련 메서드
 		bool empty() const;

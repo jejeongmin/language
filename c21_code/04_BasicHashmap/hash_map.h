@@ -6,6 +6,9 @@
 #include <string>
 #include <functional>
 
+/*
+	hash_map 을 간단한 chained_hashing 으로 구현한다.
+*/
 namespace ProCpp {
 
 	// 디폴트 해시 객체
@@ -16,7 +19,11 @@ namespace ProCpp {
 		size_t operator()(const T& key) const;
 	};
 
-	// 스트링에 대한 해시 특수화
+	/*
+		스트링에 대한 해시 특수화가 필요하다.
+		같은 문자열 값을 가지고 있어도 string 객체의 주소값이 다를 수 있기 때문에 
+		스트링의 값 자체로 해싱을 구해야 한다.
+	*/
 	template <>
 	class hash<std::string>
 	{
@@ -25,8 +32,13 @@ namespace ProCpp {
 	};
 
 
+	/*
+		map, set 과 달리 hash_map 은 원소를 키에 따라 정렬하지 않고, 키의 동등 여부를
+		비교해야 한다. 따라서 less<> 대신 equal_to<> 를 기본 비교자로 사용한다. 
 
-
+		아래와 같이 value_type 을 지정해두면, 다소 번거로운 pair<const Key, T> 타입을
+		참조하는데 유용하다.
+	*/
 	template <typename Key, typename T,
 		typename KeyEqual = std::equal_to<>,
 		typename Hash = hash<Key>>

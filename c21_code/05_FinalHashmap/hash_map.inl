@@ -17,9 +17,6 @@ namespace ProCpp {
 		return sum;
 	}
 
-
-
-
 	// 모든 문자의 아스키 값을 더해서 해시를 계산한다.
 	size_t hash<std::string>::operator()(const std::string& key) const
 	{
@@ -29,8 +26,6 @@ namespace ProCpp {
 		}
 		return sum;
 	}
-
-
 
 
 	template<typename HashMap>
@@ -292,6 +287,23 @@ namespace ProCpp {
 		return *this;
 	}
 
+	//
+	template <typename Key, typename T, typename KeyEqual, typename Hash>
+	bool hash_map<Key, T, KeyEqual, Hash>::operator==(const hash_map_type& rhs) const
+	{
+		// 반복자가 가리키는 hash_map을 포함한 모든 필드가 반드시 같아야 한다.
+		return (mSize == rhs.mSize &&
+			mBuckets == rhs.mBuckets);
+	}
+
+	template <typename Key, typename T, typename KeyEqual, typename Hash>
+	bool hash_map<Key, T, KeyEqual, Hash>::operator!=(const hash_map_type& rhs) const
+	{
+		return !(*this == rhs);
+	}
+
+	//
+
 	template <typename Key, typename T, typename KeyEqual, typename Hash>
 	std::pair<typename hash_map<Key, T, KeyEqual, Hash>::ListType::iterator, size_t>
 		hash_map<Key, T, KeyEqual, Hash>::findElement(const key_type& k)
@@ -516,6 +528,25 @@ namespace ProCpp {
 	}
 
 	template <typename Key, typename T, typename KeyEqual, typename Hash>
+	typename hash_map<Key, T, KeyEqual, Hash>::iterator
+		hash_map<Key, T, KeyEqual, Hash>::rbegin()
+	{
+		if (mSize == 0) {
+			// 특수한 경우: 원소가 없으면 끝 반복자를 리턴한다.
+			return end();
+		}
+
+		// 원소가 최소 하나라도 있다면 첫 번째 원소를 검색한다.
+		for (size_t i = 0; i < mBuckets.size(); ++i) {
+			if (!mBuckets[i].empty()) {
+				return hash_map_iterator<hash_map_type>(i, std::begin(mBuckets[i]), this);
+			}
+		}
+		// 여기까지 올 일은 없지만 혹시라도 오게 되면 끝 반복자를 리턴한다.
+		return end();
+	}
+
+	template <typename Key, typename T, typename KeyEqual, typename Hash>
 	typename hash_map<Key, T, KeyEqual, Hash>::const_iterator
 		hash_map<Key, T, KeyEqual, Hash>::begin() const
 	{
@@ -541,6 +572,15 @@ namespace ProCpp {
 	}
 
 	template <typename Key, typename T, typename KeyEqual, typename Hash>
+	typename hash_map<Key, T, KeyEqual, Hash>::iterator
+		hash_map<Key, T, KeyEqual, Hash>::rend()
+	{
+		// 여기서 끝 반복자는 마지막 버킷에 있는 리스트의 끝 반복자다.
+		size_t bucket = mBuckets.size() - 1;
+		return hash_map_iterator<hash_map_type>(bucket, std::end(mBuckets[bucket]), this);
+	}
+
+	template <typename Key, typename T, typename KeyEqual, typename Hash>
 	typename hash_map<Key, T, KeyEqual, Hash>::const_iterator
 		hash_map<Key, T, KeyEqual, Hash>::end() const
 	{
@@ -554,6 +594,38 @@ namespace ProCpp {
 		hash_map<Key, T, KeyEqual, Hash>::cend() const
 	{
 		return end();
+	}
+
+	template <typename Key, typename T, typename KeyEqual, typename Hash>
+	typename hash_map<Key, T, KeyEqual, Hash>::const_iterator
+		hash_map<Key, T, KeyEqual, Hash>::rbegin() const
+	{
+		// const_cast를 이용하여 begin()의 non-const 버전을 호출한다.
+		// 그러면 const_iterator로 변환할 수 있는 반복자로 변환한다.
+		return const_cast<hash_map_type*>(this)->rbegin();
+	}
+
+	template <typename Key, typename T, typename KeyEqual, typename Hash>
+	typename hash_map<Key, T, KeyEqual, Hash>::const_iterator
+		hash_map<Key, T, KeyEqual, Hash>::crbegin() const
+	{
+		return rbegin();
+	}
+
+	template <typename Key, typename T, typename KeyEqual, typename Hash>
+	typename hash_map<Key, T, KeyEqual, Hash>::const_iterator
+		hash_map<Key, T, KeyEqual, Hash>::rend() const
+	{
+		// const_cast를 이용하여 end()의 non-const 버전을 호출한다.
+		// 그러면 const_iterator로 변환할 수 있는 반복자로 변환한다.
+		return const_cast<hash_map_type*>(this)->rend();
+	}
+
+	template <typename Key, typename T, typename KeyEqual, typename Hash>
+	typename hash_map<Key, T, KeyEqual, Hash>::const_iterator
+		hash_map<Key, T, KeyEqual, Hash>::crend() const
+	{
+		return rend();
 	}
 
 	template <typename Key, typename T, typename KeyEqual, typename Hash>

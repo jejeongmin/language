@@ -7,10 +7,10 @@ using namespace std;
 
 int main()
 {
-	//hash_map<string, int> myHash;
-	//myHash.insert(make_pair("KeyOne", 100));
-	//myHash.insert(make_pair("KeyTwo", 200));
-	//myHash.insert(make_pair("KeyThree", 300));
+	hash_map<string, int> myHash_temp;
+	myHash_temp.insert(make_pair("KeyOne", 100));
+	myHash_temp.insert(make_pair("KeyTwo", 200));
+	myHash_temp.insert(make_pair("KeyThree", 300));
 
 	hash_map<string, int> myHash{
 			{ "KeyOne", 100 },
@@ -55,7 +55,6 @@ int main()
 		cout << "Found KeyThree: value = " << found->second << endl;
 	}
 
-
 	map<string, int> someMap{ {"One", 1},{"Two", 2} };
 	hash_map<string, int> hashMapFromMap(cbegin(someMap), cend(someMap));
 
@@ -66,6 +65,50 @@ int main()
 
 	cout << myHash3.size() << endl;
 	cout << myHash3.max_size() << endl;
+
+	// 동등 비교자 검사
+	{
+		hash_map<string, int> myHash1{
+			{ "KeyOne", 100 },
+			{ "KeyTwo", 200 } };
+
+		hash_map<string, int> myHash2{
+			{ "KeyOne", 100 },
+			{ "KeyTwo", 200 } };
+
+		hash_map<string, int> myHash3{
+			{ "KeyOne", 100 },
+			{ "KeyThree", 300 } };
+
+		if (myHash1 == myHash2)
+			cout << "myHash1 and myHash2 is equal." << endl;
+		else
+			cout << "myHash1 and myHash2 is not equal." << endl;
+
+		if (myHash1 != myHash3)
+			cout << "myHash1 and myHash3 is not equal." << endl;
+		else
+			cout << "myHash1 and myHash3 is equal." << endl;
+	}
+
+	// reverse iterator 테스트
+	{
+		hash_map<string, int> myHash{
+			{ "KeyOne", 100 },
+			{ "KeyTwo", 200 },
+			{ "KeyThree", 300 }, 
+			{ "KeyFour", 400 }, };
+
+		for (auto it = myHash.cbegin(); it != myHash.cend(); ++it) {
+			// ->와 *를 둘 다 사용해서 이 연산을 테스트한다.
+			cout << it->first << " maps to " << (*it).second << endl;
+		}
+
+		for (auto it = myHash.crbegin(); it != myHash.crend(); ++it) {
+			// ->와 *를 둘 다 사용해서 이 연산을 테스트한다.
+			cout << it->first << " maps to " << (*it).second << endl;
+		}
+	}
 
 	return 0;
 }

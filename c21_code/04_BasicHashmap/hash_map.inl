@@ -18,8 +18,6 @@ namespace ProCpp {
 	}
 
 
-
-
 	// 모든 문자의 아스키 값을 더해서 해시를 계산한다.
 	size_t hash<std::string>::operator()(const std::string& key) const
 	{
@@ -73,6 +71,14 @@ namespace ProCpp {
 		return *this;
 	}
 
+	/*
+		아래 함수 선언의
+		std::pair<typename hash_map<Key,... 에서 보듯 typename 키워드를 사용해야 한다.
+		
+		템플릿 매개변수에 관련된 타입을 사용할 때는 반드시 typename 키워드를 지정해야 한다.
+		구체적으로 말하면 ListType::iterator 가 템플릿 매개변숭린 Key 와 T에 따라 결정되는데
+		이를 풀어 쓰면 list<pair<const Key, T>>::iterator 이기 때문이다.
+	*/
 	template <typename Key, typename T, typename KeyEqual, typename Hash>
 	std::pair<typename hash_map<Key, T, KeyEqual, Hash>::ListType::iterator, size_t>
 		hash_map<Key, T, KeyEqual, Hash>::findElement(const key_type& k)
