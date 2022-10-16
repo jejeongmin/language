@@ -93,22 +93,24 @@ int main()
 
 	// reverse iterator 테스트
 	{
-		hash_map<string, int> myHash{
-			{ "KeyOne", 100 },
-			{ "KeyTwo", 200 },
-			{ "KeyThree", 300 }, 
-			{ "KeyFour", 400 }, };
+		hash_map<int, int> myHash{
+			{ 1, 100 },
+			{ 2, 200 },
+			{ 3, 300 }, 
+			{ 4, 400 }, };
 
 		for (auto it = myHash.cbegin(); it != myHash.cend(); ++it) {
 			// ->와 *를 둘 다 사용해서 이 연산을 테스트한다.
 			cout << it->first << " maps to " << (*it).second << endl;
 		}
 
+		//const_hash_map_reverse_iterator<hash_map<int, int>>	iterator(1, std::rbegin(myHash.mBuckets), &myHash);
+		//auto it = myHash.rbegin();
 		for (auto it = myHash.crbegin(); it != myHash.crend(); ++it) {
 			// ->와 *를 둘 다 사용해서 이 연산을 테스트한다.
 			cout << it->first << " maps to " << (*it).second << endl;
 		}
 	}
-
+	
 	return 0;
 }
