@@ -481,6 +481,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "04_BasicHashmap", "c21_code
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "05_FinalHashmap", "c21_code\05_FinalHashmap\05_FinalHashmap.vcxproj", "{BC2EA807-14A2-451B-8749-8CEC1B6E029B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "c22_code", "c22_code", "{766CF77C-0433-4F03-A830-47C5A2C44F4F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "01_GridTemplateContainer", "c22_code\01_GridTemplateContainer\01_GridTemplateContainer.vcxproj", "{0212FC83-A217-432E-B203-5D42469F72F6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -1797,6 +1801,12 @@ Global
 		{BC2EA807-14A2-451B-8749-8CEC1B6E029B}.Release|x64.ActiveCfg = Release|x64
 		{BC2EA807-14A2-451B-8749-8CEC1B6E029B}.Release|x64.Build.0 = Release|x64
 		{BC2EA807-14A2-451B-8749-8CEC1B6E029B}.Release|x86.ActiveCfg = Release|x64
+		{0212FC83-A217-432E-B203-5D42469F72F6}.Debug|x64.ActiveCfg = Debug|x64
+		{0212FC83-A217-432E-B203-5D42469F72F6}.Debug|x64.Build.0 = Debug|x64
+		{0212FC83-A217-432E-B203-5D42469F72F6}.Debug|x86.ActiveCfg = Debug|x64
+		{0212FC83-A217-432E-B203-5D42469F72F6}.Release|x64.ActiveCfg = Release|x64
+		{0212FC83-A217-432E-B203-5D42469F72F6}.Release|x64.Build.0 = Release|x64
+		{0212FC83-A217-432E-B203-5D42469F72F6}.Release|x86.ActiveCfg = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -2014,6 +2024,7 @@ Global
 		{57A090B3-4947-4827-8EF1-24226B0CFEED} = {698C2755-B156-4219-A02F-FF82E0FBDF24}
 		{8D9802DE-9EE6-48A6-9125-A2EC1946EEEC} = {698C2755-B156-4219-A02F-FF82E0FBDF24}
 		{BC2EA807-14A2-451B-8749-8CEC1B6E029B} = {698C2755-B156-4219-A02F-FF82E0FBDF24}
+		{0212FC83-A217-432E-B203-5D42469F72F6} = {766CF77C-0433-4F03-A830-47C5A2C44F4F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0E86262E-6FF9-401A-AE9C-1279B6E15B50}
