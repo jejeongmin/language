@@ -106,7 +106,7 @@ namespace ProCpp {
 	template<typename HashMap>
 	void const_hash_map_iterator<HashMap>::increment()
 	{
-		// mListIterator는 한 버킷에 대한 반복자다. 하나 증가시킨다.
+		// mListIterator는 한 버킷내 목록(list)에 대한 반복자다. 하나 증가시킨다.
 		++mListIterator;
 
 		// 현재 버킷의 끝에 있다면 다음 버킷을 찾는다.
@@ -147,6 +147,7 @@ namespace ProCpp {
 			}
 			// 더 이상 비어 있지 않은 버킷이 없다면 감소시키면 안 된다.
 			// mListIterator가 마지막 리스트의 끝 반복자를 가리키도록 설정한다.
+			// 증가 연산이건, 감소 연산이건 가장 마지막에 리스트의 끝 반복자를 지정하기로 한 건 이 예제에서 정한 룰이다.
 			mBucketIndex = buckets.size() - 1;
 			mListIterator = end(buckets[mBucketIndex]);
 		} else {
@@ -154,10 +155,7 @@ namespace ProCpp {
 			--mListIterator;
 		}
 	}
-
-
-
-
+	
 	template<typename HashMap>
 	hash_map_iterator<HashMap>::hash_map_iterator(size_t bucket, list_iterator_type listIt, HashMap* hashmap)
 		: const_hash_map_iterator<HashMap>(bucket, listIt, hashmap)
@@ -213,7 +211,6 @@ namespace ProCpp {
 		this->decrement();
 		return oldIt;
 	}
-
 
 
 	//////////////////////
@@ -300,20 +297,21 @@ namespace ProCpp {
 
 		// 현재 버킷의 끝에 있다면 다음 버킷을 찾는다.
 		auto& buckets = mHashmap->mBuckets;
-		if (mListIterator == end(buckets[mBucketIndex])) {
-			for (size_t i = mBucketIndex + 1; i < buckets.size(); i++) {
+		if (mListIterator == rend(buckets[mBucketIndex])) {
+
+			for (size_t i = mBucketIndex - 1; i >= 0; --i) {
 				if (!buckets[i].empty()) {
 					// 비어 있지 않은 버킷을 발견한 경우.
 					// mListIterator가 그 버킷의 첫번째 원소를 가리키게 한다.
-					mListIterator = begin(buckets[i]);
+					mListIterator = rbegin(buckets[i]);
 					mBucketIndex = i;
 					return;
 				}
 			}
 			// 더 이상 비어 있지 않은 버킷이 없으면
 			// mListIterator가 마지막 리스트의 끝 반복자를 가리키도록 설정한다.
-			mBucketIndex = buckets.size() - 1;
-			mListIterator = end(buckets[mBucketIndex]);
+			mBucketIndex = 0;
+			mListIterator = rend(buckets[mBucketIndex]);
 		}
 	}
 
@@ -326,27 +324,25 @@ namespace ProCpp {
 		// 현재 버킷의 시작 지점을 가리키고 있다면 감소시키지 않고,
 		// 현재 지점보다 앞에 있는 버킷 중에서 비어 있지 않는 것을 찾는다.
 		auto& buckets = mHashmap->mBuckets;
-		if (mListIterator == begin(buckets[mBucketIndex])) {
-			for (int i = mBucketIndex - 1; i >= 0; --i) {
+		if (mListIterator == rbegin(buckets[mBucketIndex])) {
+			for (size_t i = mBucketIndex + 1; i < buckets.size(); i++) {
 				if (!buckets[i].empty()) {
-					mListIterator = --end(buckets[i]);
+					mListIterator = --rend(buckets[i]);
 					mBucketIndex = i;
 					return;
 				}
 			}
 			// 더 이상 비어 있지 않은 버킷이 없다면 감소시키면 안 된다.
 			// mListIterator가 마지막 리스트의 끝 반복자를 가리키도록 설정한다.
+			// 증가 연산이건, 감소 연산이건 가장 마지막에 리스트의 끝 반복자를 지정하기로 한 건 이 예제에서 정한 룰이다.
 			mBucketIndex = buckets.size() - 1;
-			mListIterator = end(buckets[mBucketIndex]);
+			mListIterator = rend(buckets[mBucketIndex]);
 		}
 		else {
 			// 버킷의 시작 지점에 아직 도달하지 않았으므로 한 칸 앞으로 이동한다.
 			--mListIterator;
 		}
 	}
-
-
-
 
 	template<typename HashMap>
 	hash_map_reverse_iterator<HashMap>::hash_map_reverse_iterator(size_t bucket, list_iterator_type listIt, HashMap* hashmap)
@@ -719,7 +715,7 @@ namespace ProCpp {
 	}
 
 	template <typename Key, typename T, typename KeyEqual, typename Hash>
-	typename hash_map<Key, T, KeyEqual, Hash>::iterator
+	typename hash_map<Key, T, KeyEqual, Hash>::reverse_iterator
 		hash_map<Key, T, KeyEqual, Hash>::rbegin()
 	{
 		if (mSize == 0) {
@@ -730,7 +726,7 @@ namespace ProCpp {
 		// 원소가 최소 하나라도 있다면 첫 번째 원소를 검색한다.
 		for (size_t i = mBuckets.size()-1; i > 0 ; --i) {
 			if (!mBuckets[i].empty()) {
-				return hash_map_iterator<hash_map_type>(i, std::begin(mBuckets[i]), this);
+				return hash_map_reverse_iterator<hash_map_type>(i, std::rbegin(mBuckets[i]), this);
 			}
 		}
 		// 여기까지 올 일은 없지만 혹시라도 오게 되면 끝 반복자를 리턴한다.
@@ -763,12 +759,12 @@ namespace ProCpp {
 	}
 
 	template <typename Key, typename T, typename KeyEqual, typename Hash>
-	typename hash_map<Key, T, KeyEqual, Hash>::iterator
+	typename hash_map<Key, T, KeyEqual, Hash>::reverse_iterator
 		hash_map<Key, T, KeyEqual, Hash>::rend()
 	{
 		// 여기서 끝 반복자는 마지막 버킷에 있는 리스트의 끝 반복자다.
 		size_t bucket = 0;
-		return hash_map_iterator<hash_map_type>(bucket, std::begin(mBuckets[bucket]), this);
+		return hash_map_reverse_iterator<hash_map_type>(bucket, std::rend(mBuckets[bucket]), this);
 	}
 
 	template <typename Key, typename T, typename KeyEqual, typename Hash>
@@ -788,7 +784,7 @@ namespace ProCpp {
 	}
 
 	template <typename Key, typename T, typename KeyEqual, typename Hash>
-	typename hash_map<Key, T, KeyEqual, Hash>::const_iterator
+	typename hash_map<Key, T, KeyEqual, Hash>::const_reverse_iterator
 		hash_map<Key, T, KeyEqual, Hash>::rbegin() const
 	{
 		// const_cast를 이용하여 rbegin()의 non-const 버전을 호출한다.
@@ -797,14 +793,14 @@ namespace ProCpp {
 	}
 
 	template <typename Key, typename T, typename KeyEqual, typename Hash>
-	typename hash_map<Key, T, KeyEqual, Hash>::const_iterator
+	typename hash_map<Key, T, KeyEqual, Hash>::const_reverse_iterator
 		hash_map<Key, T, KeyEqual, Hash>::crbegin() const
 	{
 		return rbegin();
 	}
 
 	template <typename Key, typename T, typename KeyEqual, typename Hash>
-	typename hash_map<Key, T, KeyEqual, Hash>::const_iterator
+	typename hash_map<Key, T, KeyEqual, Hash>::const_reverse_iterator
 		hash_map<Key, T, KeyEqual, Hash>::rend() const
 	{
 		// const_cast를 이용하여 end()의 non-const 버전을 호출한다.
@@ -813,7 +809,7 @@ namespace ProCpp {
 	}
 
 	template <typename Key, typename T, typename KeyEqual, typename Hash>
-	typename hash_map<Key, T, KeyEqual, Hash>::const_iterator
+	typename hash_map<Key, T, KeyEqual, Hash>::const_reverse_iterator
 		hash_map<Key, T, KeyEqual, Hash>::crend() const
 	{
 		return rend();
@@ -904,4 +900,45 @@ namespace ProCpp {
 		return mBuckets[n].cend();
 	}
 
+	template <typename Key, typename T, typename KeyEqual, typename Hash>
+	typename hash_map<Key, T, KeyEqual, Hash>::local_reverse_iterator
+		hash_map<Key, T, KeyEqual, Hash>::rbegin(size_type n)
+	{
+		return mBuckets[n].rbegin();
+	}
+
+	template <typename Key, typename T, typename KeyEqual, typename Hash>
+	typename hash_map<Key, T, KeyEqual, Hash>::const_local_reverse_iterator
+		hash_map<Key, T, KeyEqual, Hash>::rbegin(size_type n) const
+	{
+		return mBuckets[n].rbegin();
+	}
+
+	template <typename Key, typename T, typename KeyEqual, typename Hash>
+	typename hash_map<Key, T, KeyEqual, Hash>::const_local_reverse_iterator
+		hash_map<Key, T, KeyEqual, Hash>::crbegin(size_type n) const
+	{
+		return mBuckets[n].crbegin();
+	}
+
+	template <typename Key, typename T, typename KeyEqual, typename Hash>
+	typename hash_map<Key, T, KeyEqual, Hash>::local_reverse_iterator
+		hash_map<Key, T, KeyEqual, Hash>::rend(size_type n)
+	{
+		return mBuckets[n].rend();
+	}
+
+	template <typename Key, typename T, typename KeyEqual, typename Hash>
+	typename hash_map<Key, T, KeyEqual, Hash>::const_local_reverse_iterator
+		hash_map<Key, T, KeyEqual, Hash>::rend(size_type n) const
+	{
+		return mBuckets[n].rend();
+	}
+
+	template <typename Key, typename T, typename KeyEqual, typename Hash>
+	typename hash_map<Key, T, KeyEqual, Hash>::const_local_reverse_iterator
+		hash_map<Key, T, KeyEqual, Hash>::crend(size_type n) const
+	{
+		return mBuckets[n].crend();
+	}
 }

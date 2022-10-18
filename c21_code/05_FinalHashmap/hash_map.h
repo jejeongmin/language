@@ -211,8 +211,10 @@ namespace ProCpp {
 		using hash_map_type = hash_map<Key, T, KeyEqual, Hash>;
 		using iterator = hash_map_iterator<hash_map_type>;
 		using const_iterator = const_hash_map_iterator<hash_map_type>;
+		using reverse_iterator = hash_map_reverse_iterator<hash_map_type>;
+		using const_reverse_iterator = const_hash_map_reverse_iterator<hash_map_type>;
 
-	private:
+	//private:			// 여기를 private 으로 하면 const_hash_map_reverse_iterator 에서 friend 선언을 해도 접근 에러가 나오는데 그 이유를 잘 모르겠다.
 		using ListType = std::list<value_type>;
 
 	public:
@@ -261,18 +263,18 @@ namespace ProCpp {
 		iterator begin();
 		iterator end();
 
-		iterator rbegin();
-		iterator rend();
+		reverse_iterator rbegin();
+		reverse_iterator rend();
 
 		const_iterator begin() const;
 		const_iterator end() const;
 		const_iterator cbegin() const;
 		const_iterator cend() const;
 
-		const_iterator rbegin() const;
-		const_iterator rend() const;
-		const_iterator crbegin() const;
-		const_iterator crend() const;
+		const_reverse_iterator rbegin() const;
+		const_reverse_iterator rend() const;
+		const_reverse_iterator crbegin() const;
+		const_reverse_iterator crend() const;
 		// reverse_interator
 
 		// 크기 관련 메서드
@@ -313,6 +315,7 @@ namespace ProCpp {
 		size_type max_bucket_count() const;
 		size_type bucket(const Key& k) const;
 		size_type bucket_size(size_type n) const;
+		
 		local_iterator begin(size_type n);
 		const_local_iterator begin(size_type n) const;
 		const_local_iterator cbegin(size_type n) const;
@@ -320,16 +323,21 @@ namespace ProCpp {
 		const_local_iterator end(size_type n) const;
 		const_local_iterator cend(size_type n) const;
 
-	private:
+		local_reverse_iterator rbegin(size_type n);
+		const_local_reverse_iterator rbegin(size_type n) const;
+		const_local_reverse_iterator crbegin(size_type n) const;
+		local_reverse_iterator rend(size_type n);
+		const_local_reverse_iterator rend(size_type n) const;
+		const_local_reverse_iterator crend(size_type n) const;
+
+//	private:-> // 여기를 private 으로 하면 const_hash_map_reverse_iterator 에서 friend 선언을 해도 접근 에러가 나오는데 그 이유를 잘 모르겠다.
 		// 주어진 키로 발견한 원소에 대한 반복자와 그 원소의 버킷 인덱스로 구성된 쌍
 		std::pair<typename ListType::iterator, size_t> findElement(const key_type& k);
-
 		std::vector<ListType> mBuckets;
 		size_type mSize = 0;
 		KeyEqual mEqual;
 		Hash mHash;
 	};
-
 }
 
 #include "hash_map.inl"
