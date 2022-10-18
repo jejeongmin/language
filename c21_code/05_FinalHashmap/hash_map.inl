@@ -299,7 +299,7 @@ namespace ProCpp {
 		auto& buckets = mHashmap->mBuckets;
 		if (mListIterator == rend(buckets[mBucketIndex])) {
 
-			for (int i = mBucketIndex - 1; i >= 0; --i) {
+			for (size_t i = mBucketIndex - 1; i >= 0; --i) {
 				if (!buckets[i].empty()) {
 					// 비어 있지 않은 버킷을 발견한 경우.
 					// mListIterator가 그 버킷의 첫번째 원소를 가리키게 한다.
