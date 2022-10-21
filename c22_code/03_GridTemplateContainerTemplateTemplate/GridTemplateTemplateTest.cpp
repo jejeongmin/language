@@ -4,6 +4,13 @@
 
 using namespace std;
 
+/*
+	Grid<int, vector<int>> myGrid;
+	
+	위 선언 보다는 아래 방식 실수가 적겠지.
+
+	Grid<int, vector> myGrid;
+*/
 int main()
 {
 	Grid<int, vector> myGrid;

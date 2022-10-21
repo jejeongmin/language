@@ -3,6 +3,11 @@
 
 using namespace std;
 
+/*
+	conjunction, 논리곱 &
+	disjunction, 논리합 |
+	negation, 부정 !
+*/
 int main()
 {
 	cout << conjunction_v<is_integral<int>, is_integral<short>> << " ";

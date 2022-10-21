@@ -13,6 +13,9 @@ class Derived : public IsDoable
 {
 };
 
+/*
+	is_invocable_v 는 주어진 함수가 주어진 인수 집합에 대해 호출되는지 검사한다.
+*/
 template<typename T>
 void call_doit(const T& [[maybe_unused]] t)
 {

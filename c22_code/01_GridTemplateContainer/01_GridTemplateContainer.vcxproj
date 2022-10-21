@@ -10,6 +10,12 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Grid.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="GridTest.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{0212FC83-A217-432E-B203-5D42469F72F6}</ProjectGuid>

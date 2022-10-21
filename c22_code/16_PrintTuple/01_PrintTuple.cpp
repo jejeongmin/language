@@ -14,6 +14,7 @@ public:
 	}
 };
 
+// 정수값이 0에 도달하면 재귀를 멈추도록  tuple_print를 부분 특수화한다.
 template<typename TupleType>
 class tuple_print<TupleType, 0>
 {

@@ -10,7 +10,7 @@ int main()
 {
 	Grid<int, vector<optional<int>>> myIntVectorGrid;
 	Grid<int, deque<optional<int>>> myIntDequeGrid;
-
+	
 	myIntVectorGrid.at(3, 4) = 5;
 	cout << myIntVectorGrid.at(3, 4).value_or(0) << endl;
 

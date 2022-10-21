@@ -5,6 +5,10 @@
 #include <vector>
 #include <utility>
 
+/*
+	이 템플릿 구현은 Container 템플릿 매개 변수로 전달되는 객체에
+	value_type 이나 resize() 가 있다고 전제하고 구현되었습니다.
+*/
 template <typename T, typename Container>
 class Grid
 {

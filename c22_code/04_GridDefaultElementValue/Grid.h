@@ -6,6 +6,10 @@
 #include <optional>
 #include <utility>
 
+/*
+	이렇게 첫 번째 매개변수로 지정한 T를 두 번째 매개변수의 타입으로 지정하고,
+	변수 default 를 T() 로 초기화했다.
+*/
 template <typename T, const T DEFAULT = T()>
 class Grid
 {

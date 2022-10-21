@@ -10,9 +10,15 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GridTemplateTemplate.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="GridTemplateTemplateTest.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{0212FC83-A217-432E-B203-5D42469F72F6}</ProjectGuid>
+    <ProjectGuid>{6A9680F8-96E4-4D3A-83D8-19CDA325361D}</ProjectGuid>
     <RootNamespace>My03HelloVariables</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>

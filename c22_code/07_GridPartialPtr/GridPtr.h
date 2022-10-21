@@ -57,6 +57,9 @@ void Grid<T*>::swap(Grid& other) noexcept
 	swap(mCells, other.mCells);
 }
 
+/*
+	deep copy ธฆ ผ๖วเ
+*/
 template <typename T>
 Grid<T*>::Grid(const Grid& src)
 	: Grid(src.mWidth, src.mHeight)

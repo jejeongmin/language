@@ -4,6 +4,14 @@
 
 using namespace std;
 
+/*
+	c++17 부터는 constexpr if 가 추가되었다. 
+	constexpr if 는 실행 시간이 아닌, 컴파일 시간에 수행된다.
+	constexpr if 의 조건을 만족하지 않으면 컴파일되지 않는다.
+
+	아래 예제에서는 constexpr if 를 사용했기 때문에
+	재귀를 멈추기 위한 부분 특수화 코드를 없앨 수 있다.
+*/
 template<typename TupleType, int n>
 class tuple_print_helper
 {
