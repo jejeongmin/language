@@ -16,8 +16,8 @@ public:
 	void operator()() const
 	{
 		for (int i = 0; i < mNumIterations; ++i) {
-			//unique_lock lock(sTimedMutex, 200ms);  // C++17
-			unique_lock<timed_mutex> lock(sTimedMutex, 200ms);
+			unique_lock lock(sTimedMutex, 200ms);  // C++17
+			//unique_lock<timed_mutex> lock(sTimedMutex, 200ms);
 			if (lock) {
 				cout << "Counter " << mId << " has value " << i << endl;
 			} else {

@@ -16,11 +16,15 @@ void initializeSharedResources()
 atomic<bool> gInitialized(false);
 mutex gMutex;
 
+/*
+	이중 검사 락 패턴(double-checked locking pattern)은 사실 anti-patter(나쁜 패턴)이라서 사용하지 않는 것이 좋다.
+	이것보다는 기본 락, 아토빅변수, call_once, 함수 로컬 static 인스턴스를 활용하는 것이 좋다
+*/
 void processingFunction()
 {
 	if (!gInitialized) {
-		//unique_lock lock(gMutex);  // C++17
-		unique_lock<mutex> lock(gMutex);
+		unique_lock lock(gMutex);  // C++17
+		//unique_lock<mutex> lock(gMutex);
 		if (!gInitialized) {
 			initializeSharedResources();
 			gInitialized = true;

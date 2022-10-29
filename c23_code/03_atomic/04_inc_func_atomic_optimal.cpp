@@ -14,6 +14,8 @@ void increment(atomic<int>& counter)
 		++result;
 		this_thread::sleep_for(1ms);
 	}
+
+	// 스레드 내부 저장소 지역 변수를 이용해 증가 연산을 하고, 그 결과를 counter 레퍼런스에 한 번에 연산해서 atomic 연산을 최소화하는 방식으로 최적화
 	counter += result;
 }
 

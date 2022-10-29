@@ -2,6 +2,12 @@
 
 using namespace std;
 
+/*
+	future 의 get()을 여러 스레드에 대해 여러 번 호출하고 싶다면 std::shared_future<T> 를 사용한다.
+	이때 T는 복제 생성할 수 있어야 한다.
+	shared_future 는 std::future::share() 로 생성하거나
+	shared_future 생성자에 future 를 전달(이동)하는 방식으로 생성한다.
+*/
 int main()
 {
 	promise<void> thread1Started, thread2Started;

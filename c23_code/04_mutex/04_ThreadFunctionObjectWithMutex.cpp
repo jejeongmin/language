@@ -12,11 +12,12 @@ public:
 	{
 	}
 
+	// cout 스트림 출력이 뒤섞이지 않도록 처리
 	void operator()() const
 	{
 		for (int i = 0; i < mNumIterations; ++i) {
-			//lock_guard lock(sMutex);  // C++17
-			lock_guard<mutex> lock(sMutex);
+			lock_guard lock(sMutex);  // C++17
+			// lock_guard<mutex> lock(sMutex);
 			cout << "Counter " << mId << " has value " << i << endl;
 		}
 	}

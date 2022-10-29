@@ -3,6 +3,11 @@
 
 using namespace std;
 
+/*
+	fetch_add 외에도, 
+	fetch_sub, fetch_and, fetch_or, fetch_xor, ++, -- +=, -= 을 지원한다.
+*/
+
 int main()
 {
 	atomic<int> value(10);

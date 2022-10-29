@@ -13,8 +13,8 @@ Logger::Logger()
 void Logger::log(string_view entry)
 {
 	// 뮤텍스에 락을 걸고 큐에 항목을 추가한다.
-	//unique_lock lock(mMutex);  // C++17
-	unique_lock<mutex> lock(mMutex);
+	unique_lock lock(mMutex);  // C++17
+	//unique_lock<mutex> lock(mMutex);
 	mQueue.push(string(entry));
 
 	// 스레드를 깨우는 조건 변수에 알림을 보낸다.
@@ -31,8 +31,8 @@ void Logger::processEntries()
 	}
 
 	// 큐를 처리하는 루프를 시작한다.
-	//unique_lock lock(mMutex);  // C++17
-	unique_lock<mutex> lock(mMutex);
+	unique_lock lock(mMutex);  // C++17
+	//unique_lock<mutex> lock(mMutex);
 	while (true) {
 		// 알림이 오기를 기다린다.
 		mCondVar.wait(lock);

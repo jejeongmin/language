@@ -16,7 +16,7 @@ void increment(int& counter)
 
 int main()
 {
-	int counter = 0;
+	int counter = 0;	
 	vector<thread> threads;
 
 	for (int i = 0; i < 10; ++i) {
@@ -27,6 +27,7 @@ int main()
 		t.join();
 	}
 
+	// count 에 대한 데이터 경쟁이 발생해 기대값인 1,000 이 나오지 않음
 	cout << "Result = " << counter << endl;
 
 	return 0;

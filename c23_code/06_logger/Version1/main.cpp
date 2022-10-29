@@ -15,6 +15,11 @@ void logSomeMessages(int id, Logger& logger)
 	}
 }
 
+/*
+	Logger 내부이 thread 가 종료되기 전에 main process 가 먼저 종료되기 때문에 terminate 되어 오류가 발생한다.
+	thread 내부에서 펜딩 중인 로그 메시지들도 전부 출력되지 않는다.
+	이 문제를 개선한 버전은 06_logger_02 버전이다.
+*/
 int main()
 {
 	Logger logger;

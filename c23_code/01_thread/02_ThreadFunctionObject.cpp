@@ -23,6 +23,14 @@ private:
 	int mNumIterations;
 };
 
+/*
+	함수 객체는 항상 스레드의 내부 저장소에 복제된다. 
+	함수 객체의 인스턴스를 복제하지 않고 그 인스턴스에 대해 operator()를 호출하려면 std::ref 나 std::cref 를 사용해서
+	인스턴스를 레퍼런스로 전달해야 한다. 예를 들면 다음과 같다.
+
+	Counter c(2, 12);
+	thread t2(std::ref(c));
+*/
 int main()
 {
 	// 유니폼 초기화 구문을 적용한다.
