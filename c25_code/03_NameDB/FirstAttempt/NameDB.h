@@ -5,6 +5,10 @@
 #include <vector>
 #include <utility>
 
+/*
+	이 버전은 자료 저장을 vector 에 하고,
+	탐색을 포함한 많은 동작을 선형으로 수행하기 때문에 데이터가 많을 경우 느려질 수 밖에 없다
+*/
 class NameDB
 {
 public:

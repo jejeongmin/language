@@ -4,6 +4,11 @@
 #include <string>
 #include <map>
 
+/*
+	03_NameDB_01 에서 vector 만 map 으로 변경했다.
+	적절한 자료 구조 선택만으로 성능이 극적으로 향상된다.
+	경험적으로 처음 만들 때부터 vector 를 쓰는 경우가 드물다.
+*/
 class NameDB
 {
 public:
