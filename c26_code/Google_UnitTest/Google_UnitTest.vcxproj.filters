@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="ObjectPoolTest.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="Serial.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="ObjectPool.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="Serial.h">
+      <Filter>source</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="source">
+      <UniqueIdentifier>{5b49fe33-c6ff-45fa-9a33-a7974436d61b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
