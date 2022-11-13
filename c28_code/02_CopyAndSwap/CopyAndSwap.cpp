@@ -22,6 +22,12 @@ void swap(CopyAndSwap& first, CopyAndSwap& second) noexcept
 	// swap(first.mData, second.mData);
 }
 
+/*
+	복제 후 맞바꾸기 연산으로 처리해야 안전하다.
+	생성자 복제 연산을 통해 맞바꿀 임시 변수를 만든다. 이 과정에서 문제(예외)가 생기고 연산이 종료되더라도 원본 객체는 변경될 위험이 없다.
+	예외가 발생하지 않을 연산만으로 swap 을 한다. swap 은 noexcept 로 선언해야 하며, 그래야 다른 표준라이브러리와 호환해 사용할 수 있다.
+	chapter 9 에 관련된 구현과 설명이 더 자세히 있으므로 참조할 것
+*/
 CopyAndSwap& CopyAndSwap::operator=(const CopyAndSwap& rhs)
 {
 	// 자기 자신 대입 여부 확인
