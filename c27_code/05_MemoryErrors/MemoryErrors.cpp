@@ -63,9 +63,15 @@ void accessElsewhere()
 	}
 }
 
+/*
+	VS2017 에서 빌드하면 컴파일 단계에서 실패한다.
+
+	예제 빌드를 위해 nullptr 로 초기화하도록 수정했다
+*/
 void readUninitialized()
 {
-	int* p;
+	//int* p;	// 원래 코드
+	int* p = nullptr;
 	cout << *p << endl; // 버그! p를 초기화하지 않았다.
 }
 
@@ -76,17 +82,17 @@ int main()
 	cout << "Mismatched Free" << endl;
 	mismatchedFree();
 	cout << "Double Free" << endl;
-	doubleFree();
+	doubleFree();		// vs2017 에서 실행 오류
 	cout << "Free Unallocated" << endl;
-	freeUnallocated();
+	freeUnallocated();	// vs2017 에서 실행 오류
 	cout << "Free Stack" << endl;
-	freeStack();
+	freeStack();		// vs2017 에서 실행 오류
 	cout << "Access Invalid" << endl;
-	accessInvalid();
+	accessInvalid();	// vs2017 에서 실행 오류
 	cout << "Access Freed" << endl;
-	accessFreed();
+	accessFreed();		// vs2017 에서 실행 오류
 	cout << "Access Elsewhere" << endl;
-	accessElsewhere();
+	accessElsewhere();	// vs2017 에서 실행 오류
 	cout << "Read Uninitialized" << endl;
 	readUninitialized();
 

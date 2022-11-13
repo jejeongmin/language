@@ -6,7 +6,7 @@
 
 using namespace std;
 
-#define DEBUG_MODE
+//#define DEBUG_MODE
 
 #ifdef DEBUG_MODE
 	class Logger
@@ -75,6 +75,9 @@ void processUserCommand(UserCommand& /* cmd */)
 	// 코드 생략
 }
 
+/*
+	debug 모드에서는 log 매크로가 선언되어 있지 않고 e.what() 자체가 호출되지 않아, 경고가 뜬다. 그걸 막기 위해 [[maybe_unuse]] 를 활용했다.
+*/
 void trickyFunction(ComplicatedClass* obj)
 {
 	log("given argument: ", *obj);
@@ -85,7 +88,7 @@ void trickyFunction(ComplicatedClass* obj)
 
 		try {
 			processUserCommand(cmd);
-		} catch (const exception& e) {
+		} catch (const exception& [[maybe_unused]] e) {
 			log("received exception from processUserCommand(): ", e.what());
 		}
 	}
@@ -93,12 +96,10 @@ void trickyFunction(ComplicatedClass* obj)
 
 int main(int argc, char* argv[])
 {
-#ifdef DEBUG_MODE
 	// 트레이스에 대한 커맨드라인 인수를 출력한다.
 	for (int i = 0; i < argc; i++) {
 		log(argv[i]);
 	}
-#endif
 
 	ComplicatedClass obj;
 	trickyFunction(&obj);

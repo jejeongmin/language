@@ -78,14 +78,15 @@ void ArticleCitations::readFile(string_view fileName)
 		}
 	}
 
-	delete [] mCitations;  // 예전에 할당했던 인용 정보를 삭제한다.
+	delete [] mCitations;  // 예전에 할당했던 인용 정보를 삭제한다.	버그 수정 지점 #1
 	mCitations = nullptr;
-	mNumCitations = 0;
+	mNumCitations = 0;											//	버그 수정 지점 #2
+
 	if (count != 0) {
 		// 인용 정보를 담은 스트링 배열을 할당한다.
 		mCitations = new string[count];
 		mNumCitations = count;
-		// 스트림 상태를 클리어한다.
+		// 스트림 상태를 클리어한다.									버그 수정 지점 #3
 		inputFile.clear();
 		// 인용 정보의 첫 항목으로 돌아간다.
 		inputFile.seekg(citationsStart);

@@ -1,4 +1,4 @@
-#include "01_FirstAttempt/ArticleCitations.h"
+#include "ArticleCitations.h"
 #include <iostream>
 
 using namespace std;

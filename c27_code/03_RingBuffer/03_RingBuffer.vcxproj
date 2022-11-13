@@ -10,6 +10,13 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="RingBuffer.cpp" />
+    <ClCompile Include="RingBufferTest.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="RingBuffer.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{093664A4-B075-4D1F-87A3-86E483CBC6EC}</ProjectGuid>

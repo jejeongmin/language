@@ -24,7 +24,7 @@ public:
 			cerr << "Unable to open debug file!" << endl;
 			return;
 		}
-		// C++17 단항 우측 폴드를 적용한다. (22장 참조)
+		// C++17 단항 우측 폴드를 적용한다. (22장 참조), 인자들에서 대해서 재귀적으로 지정된 연산 - 이 경우에는 << - 를 수행함
 		((logfile << args),...);
 		logfile << endl;
 	}
