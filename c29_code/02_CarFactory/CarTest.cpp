@@ -30,9 +30,10 @@ unique_ptr<Car> LeastBusyFactory::createCar()
 {
 	CarFactory* bestSoFar = mFactories[0].get();
 
-	for (auto& factory : mFactories) {
-		if (factory->getNumberOfCarsProduced() <
-			bestSoFar->getNumberOfCarsProduced()) {
+	for (auto& factory : mFactories)
+	{
+		if (factory->getNumberOfCarsProduced() < bestSoFar->getNumberOfCarsProduced())
+		{
 			bestSoFar = factory.get();
 		}
 	}
