@@ -10,6 +10,12 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="HelloCpp.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="HelloCSharp.cs" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{1634ED5B-E57E-4D7B-A909-2D97DB4AD665}</ProjectGuid>
