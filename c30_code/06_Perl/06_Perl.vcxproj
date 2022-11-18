@@ -10,6 +10,15 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="encryptString.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="processLog.pl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="userlog.txt" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{56777B1A-B39E-4609-B277-853A732ED55B}</ProjectGuid>
