@@ -43,4 +43,7 @@
       <Filter>source</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="IntegerFile.txt" />
+  </ItemGroup>
 </Project>

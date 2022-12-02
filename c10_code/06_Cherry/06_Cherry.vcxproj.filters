@@ -32,5 +32,6 @@
     <ClCompile Include="CherryTree.cpp">
       <Filter>source</Filter>
     </ClCompile>
+    <ClCompile Include="TestCherry.cpp" />
   </ItemGroup>
 </Project>

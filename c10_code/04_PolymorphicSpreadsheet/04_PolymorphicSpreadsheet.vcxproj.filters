@@ -23,5 +23,6 @@
     <ClCompile Include="StringSpreadsheetCell.cpp">
       <Filter>source</Filter>
     </ClCompile>
+    <ClCompile Include="SpreadsheetTest.cpp" />
   </ItemGroup>
 </Project>
