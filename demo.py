@@ -113,13 +113,36 @@ id(a), id(b)
 # copy func
 import copy
 src = [1,2,3]
+
+# 이건 그냥 할당, 강의에서는 얕은 복사로 잘못 소개
+dst1 = src  
+
+# 이게 얕은 복사
+dst2 = src[:]
 swallow_copy_dst = copy.copy(src)
+
+# 이건 재귀적인 깊은 복사
 deep_copy_dst = copy.deepcopy(src)
-src[0] = 38
+
+#src[0] = 38
+#swallow_copy_dst[0] = 38
+#deep_copy_dst[0] = 38
+
 src
 swallow_copy_dst
 deep_copy_dst
+#id(src[0]), id(swallow_copy_dst[0]), id(deep_copy_dst[0])
+id(src) == id(swallow_copy_dst)
+src == swallow_copy_dst
+
+id(src) == id(deep_copy_dst)
+src == deep_copy_dst
+
+id(swallow_copy_dst) == id(deep_copy_dst)
+swallow_copy_dst == deep_copy_dst
+
 id(src), id(swallow_copy_dst), id(deep_copy_dst)
+
 
 # 산술 연산자와 관계 연산자는 다른 언어와 동일
 # 논리 연산자는 기호를 쓰지 않고 영어를 그대로 사용

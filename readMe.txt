@@ -15,3 +15,11 @@ ChatGPT:
 맞습니다. Python에서는 다른 언어와 달리 중괄호({})를 사용하여 코드 블록을 지정하지 않습니다. 대신, 들여쓰기(indentation)를 사용하여 코드 블록을 지정합니다. 이는 코드의 가독성을 높이고, 불필요한 괄호나 구문을 줄여주는 장점이 있습니다.
 그러나 이렇게 코드 블록을 들여쓰기로 구분하는 것은 빈 블록을 생성하는 경우에는 코드 블록이 없기 때문에 문제가 될 수 있습니다. 이때 pass 키워드를 사용하여 빈 블록을 생성할 수 있습니다.
 또한, Python은 다른 언어와 달리 모든 함수와 클래스가 명시적으로 종료되지 않아도 됩니다. 이는 반환문이나 예외 발생을 통해 함수 또는 클래스를 종료하는 것이 아니라, 함수나 클래스 블록이 끝나면 자동으로 종료되기 때문입니다. 이때 pass 키워드를 사용하여 함수나 클래스를 종료하지 않을 수 있습니다.
+
+
+
+깊은 복사, 얕은 복사는 강의 내용과 답변이 부실해서 별도 검색 통해서 개념 이해
+https://blockdmask.tistory.com/576
+https://crackerjacks.tistory.com/14
+https://docs.python.org/ko/3/library/copy.html
+https://velog.io/@kkamyang/Python-%EC%96%95%EC%9D%80-%EB%B3%B5%EC%82%AC-%EA%B9%8A%EC%9D%80-%EB%B3%B5%EC%82%AC-shallow-copy-deep-copy
