@@ -5,3 +5,9 @@
 [강의 소스 자료](https://drive.google.com/drive/folders/1hyFHyIzCG-9VOh25EULC3KBfh6cXVMIj)
 
 [깡쌤 블로그](https://kkangsnote.tistory.com/)
+
+[온라인유료강의](https://www.ssamz.com/)
+
+[네이버카페강의](https://cafe.naver.com/doitstudyroom)
+
+[이지스퍼블리싱 출판사](https://easyspub.co.kr)
