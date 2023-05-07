@@ -32,6 +32,10 @@ android {
     viewBinding {
         enabled = true
     }
+    namespace 'com.example.ch15_service'
+    buildFeatures {
+        aidl true
+    }
 }
 
 dependencies {

@@ -32,6 +32,7 @@ android {
     viewBinding {
         enabled = true
     }
+    namespace 'com.example.ch13_activity'
 }
 
 dependencies {

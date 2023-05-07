@@ -29,6 +29,10 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    namespace 'com.example.ch15_outer'
+    buildFeatures {
+        aidl true
+    }
 }
 
 dependencies {
