@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var toggle: ActionBarDrawerToggle
 
+    // 뷰 페이저 어댑터
     class MyFragmentPagerAdapter(activity: FragmentActivity): FragmentStateAdapter(activity){
         val fragments: List<Fragment>
         init {
@@ -31,11 +32,14 @@ class MainActivity : AppCompatActivity() {
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
+
+        // ActionBarDrawerToggle 버튼 적용
         toggle = ActionBarDrawerToggle(this, binding.drawer, R.string.drawer_opened,
             R.string.drawer_closed)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         toggle.syncState()
 
+        // 뷰 페이저에 어댑터 적용
         val adapter = MyFragmentPagerAdapter(this)
         binding.viewpager.adapter = adapter
     }
@@ -44,14 +48,17 @@ class MainActivity : AppCompatActivity() {
         val inflater = menuInflater
         inflater.inflate(R.menu.menu_main, menu)
 
+        // MenuItem 객체를 얻고 그 안에 포함된 ActionView 객체 획득
         val menuItem = menu?.findItem(R.id.menu_search)
         val searchView = menuItem?.actionView as SearchView
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextChange(newText: String?): Boolean {
+                // 검색어 변경 이벤트
                 return true
             }
 
             override fun onQueryTextSubmit(query: String?): Boolean {
+                // 이벤트가 토글 버튼에서 발생하면
                 Log.d("kkang", "search text: $query")
                 return true
             }
