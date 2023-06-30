@@ -15,7 +15,7 @@
         android:theme="@style/Theme.AndroidLab">
         <uses-library android:name="org.apache.http.legacy" android:required="true"/>
         <meta-data android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyDTThIOmK7QFyF3brbdhPh1-RffCtfoD4M"/>
+            android:value="AIzaSyBrQASlNvMMsMSrtiy51u-AbZkas65a76Q"/>
         <meta-data android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version"/>
         <activity

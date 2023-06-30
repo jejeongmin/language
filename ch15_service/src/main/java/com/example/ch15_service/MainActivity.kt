@@ -117,6 +117,7 @@ class MainActivity : AppCompatActivity() {
             super.handleMessage(msg)
             when(msg.what){
                 10 -> {
+                    // 재생 후 지속 시간이 전달되면
                     val bundle = msg.obj as Bundle
                     bundle.getInt("duration")?.let {
                         when {
