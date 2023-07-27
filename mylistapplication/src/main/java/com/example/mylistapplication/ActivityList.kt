@@ -2,6 +2,8 @@ package com.example.mylistapplication
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.Toast
 import com.example.mylistapplication.databinding.ActivityListBinding
 
 class ActivityList : AppCompatActivity() {
@@ -23,6 +25,17 @@ class ActivityList : AppCompatActivity() {
         setContentView(binding.root)
 
         val adapter = ContactsListAdapter(contactsList)
+
+        adapter.setItemClickListener(object : ContactsListAdapter.OnItemClickListener {
+            override fun onClick(v: View, position: Int) {
+                val item = contactsList[position]
+
+                Toast.makeText(v.context, "Activity\n${item.name}\n${item.tel}", Toast.LENGTH_SHORT).show()
+                item.name = item.name + "1"
+
+                adapter.notifyDataSetChanged()
+            }
+        })
         binding.mRecyclerView.adapter = adapter
     }
 }
