@@ -8,7 +8,7 @@ import com.example.mylistapplication.databinding.ActivityListBinding
 
 class ActivityList : AppCompatActivity() {
 
-    val contactsList : List<Contacts> = listOf(
+    var contactsList = mutableListOf(
         Contacts("john","010-0000-11111"),
         Contacts("mir","010-1111-2222"),
         Contacts("delp", "010-3333-4444"),
@@ -17,6 +17,8 @@ class ActivityList : AppCompatActivity() {
         Contacts("ma", "010-3333-7777"),
         Contacts("ham", "010-3333-8889")
     )
+
+    var count = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,12 +32,21 @@ class ActivityList : AppCompatActivity() {
             override fun onClick(v: View, position: Int) {
                 val item = contactsList[position]
 
-                Toast.makeText(v.context, "Activity\n${item.name}\n${item.tel}", Toast.LENGTH_SHORT).show()
-                item.name = item.name + "1"
+                //Toast.makeText(v.context, "Activity\n${item.name}\n${item.tel}", Toast.LENGTH_SHORT).show()
+                //item.name = item.name + "1"
+                contactsList.removeAt(position)
 
                 adapter.notifyDataSetChanged()
             }
         })
+
+        binding.mPlusButton.setOnClickListener {
+            var contact = Contacts("Add ${count++}","000-0000-00000")
+            contactsList.add(contact)
+
+            adapter.notifyDataSetChanged()
+        }
+
         binding.mRecyclerView.adapter = adapter
     }
 }
