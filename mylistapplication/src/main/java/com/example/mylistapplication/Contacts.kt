@@ -1,4 +1,10 @@
 package com.example.mylistapplication
 
-class Contacts(var name: String, val tel: String) {
-}
+import androidx.room.*
+
+@Entity(tableName = "tb_contacts")
+data class Contacts(
+    @PrimaryKey(autoGenerate = true) val id:Long,
+    var name: String,
+    var tel: String
+)
