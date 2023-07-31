@@ -16,3 +16,4 @@ rootProject.name = "FoodChoiceApp"
 include ':app'
 include ':myapplication'
 include ':mylistapplication'
+include ':bmicalcurator'
