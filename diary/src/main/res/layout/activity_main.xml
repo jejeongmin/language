@@ -12,7 +12,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:text="나의 비밀 노트"
-        android:layout_marginBottom="10dp"ㅇ
+        android:layout_marginBottom="10dp"
         android:textSize="30sp"
         android:textStyle="bold"
         android:layout_width="wrap_content"
