@@ -55,3 +55,7 @@ Stop 상태 액티비티와 크래쉬 발생 방지 : 옵저버의 생명주기�
 3. 사용법
 Generic을 사용하여 관찰할 데이터의 타입을 갖는 LiveData 생성
 옵저버 객체 생성
+
+# Fragment
+1. Fragment 사용법
+2. [동적으로 Fragment 추가하는 법](https://cometome1004.tistory.com/144)
