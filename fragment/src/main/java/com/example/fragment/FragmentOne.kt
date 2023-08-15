@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -35,6 +36,29 @@ class FragmentOne : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_one, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val menu1 = view.findViewById<Button>(R.id.menu1)
+        val menu2 = view.findViewById<Button>(R.id.menu2)
+        val menu3 = view.findViewById<Button>(R.id.menu3)
+        val menu4 = view.findViewById<Button>(R.id.menu4)
+        val mActivity = activity as MainActivity
+
+        menu1.setOnClickListener {
+            mActivity.receive_Menu_Button(1)
+        }
+        menu2.setOnClickListener {
+            mActivity.receive_Menu_Button(2)
+        }
+        menu3.setOnClickListener {
+            mActivity.receive_Menu_Button(3)
+        }
+        menu4.setOnClickListener {
+            mActivity.receive_Menu_Button(4)
+        }
+
     }
 
     companion object {
