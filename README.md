@@ -60,7 +60,9 @@ Generic을 사용하여 관찰할 데이터의 타입을 갖는 LiveData 생성
 1. Fragment 사용법
 2. [동적으로 Fragment 추가하는 법](https://cometome1004.tistory.com/144)
 3. Fragment 내의 UI 요소를 정렬하는 방법
-4. Fragment -> Fragment를 포함한 Activity 로 데이터를 전송하는 방법
+4. FragmentOne -> Activity 로 데이터를 전송하는 방법
+5. FragmentTwo -> Activity 로 데이터를 전송하는 방법
+6. Activity -> Fragment2 로 번들을 이용해 데이터 전송하는 방법
 
 # Thread
 1. 구현 객체의 auto binding
