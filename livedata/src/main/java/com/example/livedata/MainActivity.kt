@@ -30,9 +30,16 @@ class MainActivity : AppCompatActivity() {
             liveText.value = "Hello World ${++count}"
         }
     }
+
+    /*
+        private var liveText : MutableLiveData<String> = MutableLiveData<String>().apply{
+        value = "apply활용 값 : ${++cnt}"
+
+        set 함수를 따로 분리하는 것보다는 위의 예시처럼 applay를 적용하는 게 더 간단한 구현이다.
+    */
+    private fun MutableLiveData<String>.set(value:String) : MutableLiveData<String>{
+        this.value = value
+        return this
+    }
 }
 
-private fun MutableLiveData<String>.set(value:String) : MutableLiveData<String>{
-    this.value = value
-    return this
-}

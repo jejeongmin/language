@@ -40,7 +40,7 @@ class Person(val name: String, val age: Int, val grade: Int = 1)
 2. Room 객체 사용을 통한 데이터 저장
 3. List 표시 객체 holder, adpater 사용 예시
 
-# LiveData 모듈 참고할 코드
+# [LiveData 모듈 참고할 코드](https://cometome1004.tistory.com/159)
 1. LiveData
 Data의 변경을 관찰 할 수 있는 Data Holder 클래스
 LiveData는 Observable과 다르게 안드로이드의 생명주기를 알고 있다.
