@@ -6,16 +6,22 @@
     <ClCompile Include="RWLock.cpp">
       <Filter>RWLock 구현</Filter>
     </ClCompile>
+    <ClCompile Include="SharedMutex.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
     <ClInclude Include="RWLock.h">
       <Filter>RWLock 구현</Filter>
     </ClInclude>
+    <ClInclude Include="SharedMutex.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="RWLock 구현">
       <UniqueIdentifier>{bac1ae7b-a13a-4bed-9b7f-f4fbf88d0b27}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="ReadMe.md" />
   </ItemGroup>
 </Project>

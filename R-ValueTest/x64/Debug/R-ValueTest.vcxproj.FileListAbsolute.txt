@@ -1,1 +1,0 @@
-D:\project\GitHub\Cpp_Study\R-ValueTest\x64\Debug\R-ValueTest.vcxproj.CopyComplete
