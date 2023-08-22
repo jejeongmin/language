@@ -2,7 +2,7 @@
 
 #include <shared_mutex>
 
-class SharedMutex : public ::testing::Test
+class SharedMutexTest : public ::testing::Test
 {
 public:
 	void SetUp(void);
@@ -14,4 +14,4 @@ public:
 		_bad_result;
 
 	std::shared_mutex	_mtx;
-};
+};	
