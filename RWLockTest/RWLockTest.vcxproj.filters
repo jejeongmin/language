@@ -6,6 +6,7 @@
       <Filter>RWLock 구현</Filter>
     </ClCompile>
     <ClCompile Include="SharedMutexTest.cpp" />
+    <ClCompile Include="RWLockTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -13,6 +14,7 @@
       <Filter>RWLock 구현</Filter>
     </ClInclude>
     <ClInclude Include="SharedMutexTest.h" />
+    <ClInclude Include="RWLockTest.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="RWLock 구현">

@@ -25,5 +25,5 @@ private:
         LF_WRITE_FLAG = 0x00100000,
         LF_READ_MASK = 0x000FFFFF ///< 하위 20비트를 readlock을 위한 플래그로 사용한다.
     };
-    volatile long mLockFlag;
+    volatile long mLockFlag = 0;
 };

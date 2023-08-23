@@ -35,10 +35,12 @@
   <ItemGroup>
     <ClInclude Include="pch.h" />
     <ClInclude Include="RWLock.h" />
+    <ClInclude Include="RWLockTest.h" />
     <ClInclude Include="SharedMutexTest.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="RWLock.cpp" />
+    <ClCompile Include="RWLockTest.cpp" />
     <ClCompile Include="SharedMutexTest.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
