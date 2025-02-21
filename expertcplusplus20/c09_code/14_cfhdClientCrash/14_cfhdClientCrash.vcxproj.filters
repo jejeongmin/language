@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="source">
+      <UniqueIdentifier>{f190d299-f62a-464b-8d49-d4accf2bf9c7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DestructorNoException.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="DestructorException.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="cfhdClientCrashTest.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="DestructorNoException.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="DestructorException.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

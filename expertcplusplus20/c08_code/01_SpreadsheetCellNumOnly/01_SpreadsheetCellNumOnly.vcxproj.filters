@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="source">
+      <UniqueIdentifier>{4f46d1af-c6c6-42df-bee9-7f5b43390d7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AccessControl">
+      <UniqueIdentifier>{0919ff3f-cd85-454e-92fd-15f9f8bc687b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DeclarationOrder">
+      <UniqueIdentifier>{a9e11bdb-702d-476e-b0d0-879a241eb822}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="SpreadsheetCell.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="SpreadsheetCellTest.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SpreadsheetCell.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="AccessControl\SpreadsheetCell.h">
+      <Filter>AccessControl</Filter>
+    </ClInclude>
+    <ClInclude Include="DeclarationOrder\SpreadsheetCell.h">
+      <Filter>DeclarationOrder</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="README.txt" />
+  </ItemGroup>
+</Project>
