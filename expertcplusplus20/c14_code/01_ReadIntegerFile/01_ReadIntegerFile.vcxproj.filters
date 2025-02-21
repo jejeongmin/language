@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="source">
+      <UniqueIdentifier>{7ba5a670-6349-4f2a-9112-c0c22edd3cf3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="12_noexcept.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="01_NoExceptionHandling.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="02_SafeDivide.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="03_BasicExceptions.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="04_ThrowInt.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="05_ThrowCharStar.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="06_CatchByValue.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="07_CatchByNonConstReference.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="08_ThrowingMultipleBasic.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="09_ThrowingTwoTypes.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="10_MatchingAnyException.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="11_TerminateHandler.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="IntegerFile.txt" />
+  </ItemGroup>
+</Project>

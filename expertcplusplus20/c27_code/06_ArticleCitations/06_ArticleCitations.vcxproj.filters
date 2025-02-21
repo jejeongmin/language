@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="01_FirstAttempt">
+      <UniqueIdentifier>{f3c9bec4-1c0c-47ce-86a8-43303e0b56b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02_CoutDebugging">
+      <UniqueIdentifier>{071a451f-d430-4bac-8140-fcd9c47554a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03_CoutDebuggingWithStreamState">
+      <UniqueIdentifier>{0531a9fc-5212-41dc-a8e8-f7f923585139}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04_AfterCoutDebugging">
+      <UniqueIdentifier>{c3ce1323-88b7-4987-bf93-3a3e56ad59d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05_FinalVersion">
+      <UniqueIdentifier>{87d98385-2fa8-4e8d-85e7-ae40d18640ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06_VisualStudio">
+      <UniqueIdentifier>{02ec4e79-930e-4595-ae06-2f8541b611a2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="01_FirstAttempt\ArticleCitations.cpp">
+      <Filter>01_FirstAttempt</Filter>
+    </ClCompile>
+    <ClCompile Include="01_FirstAttempt\ArticleCitationsTest.cpp">
+      <Filter>01_FirstAttempt</Filter>
+    </ClCompile>
+    <ClCompile Include="02_CoutDebugging\ArticleCitations.cpp">
+      <Filter>02_CoutDebugging</Filter>
+    </ClCompile>
+    <ClCompile Include="02_CoutDebugging\ArticleCitationsTest.cpp">
+      <Filter>02_CoutDebugging</Filter>
+    </ClCompile>
+    <ClCompile Include="03_CoutDebuggingWithStreamState\ArticleCitations.cpp">
+      <Filter>03_CoutDebuggingWithStreamState</Filter>
+    </ClCompile>
+    <ClCompile Include="03_CoutDebuggingWithStreamState\ArticleCitationsTest.cpp">
+      <Filter>03_CoutDebuggingWithStreamState</Filter>
+    </ClCompile>
+    <ClCompile Include="04_AfterCoutDebugging\ArticleCitations.cpp">
+      <Filter>04_AfterCoutDebugging</Filter>
+    </ClCompile>
+    <ClCompile Include="04_AfterCoutDebugging\ArticleCitationsTest.cpp">
+      <Filter>04_AfterCoutDebugging</Filter>
+    </ClCompile>
+    <ClCompile Include="05_FinalVersion\ArticleCitations.cpp">
+      <Filter>05_FinalVersion</Filter>
+    </ClCompile>
+    <ClCompile Include="05_FinalVersion\ArticleCitationsTest.cpp">
+      <Filter>05_FinalVersion</Filter>
+    </ClCompile>
+    <ClCompile Include="06_VisualStudio\ArticleCitations.cpp">
+      <Filter>06_VisualStudio</Filter>
+    </ClCompile>
+    <ClCompile Include="06_VisualStudio\ArticleCitationsTest.cpp">
+      <Filter>06_VisualStudio</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="01_FirstAttempt\ArticleCitations.h">
+      <Filter>01_FirstAttempt</Filter>
+    </ClInclude>
+    <ClInclude Include="02_CoutDebugging\ArticleCitations.h">
+      <Filter>02_CoutDebugging</Filter>
+    </ClInclude>
+    <ClInclude Include="03_CoutDebuggingWithStreamState\ArticleCitations.h">
+      <Filter>03_CoutDebuggingWithStreamState</Filter>
+    </ClInclude>
+    <ClInclude Include="04_AfterCoutDebugging\ArticleCitations.h">
+      <Filter>04_AfterCoutDebugging</Filter>
+    </ClInclude>
+    <ClInclude Include="05_FinalVersion\ArticleCitations.h">
+      <Filter>05_FinalVersion</Filter>
+    </ClInclude>
+    <ClInclude Include="06_VisualStudio\ArticleCitations.h">
+      <Filter>06_VisualStudio</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="paper1.txt" />
+    <Text Include="paper2.txt" />
+  </ItemGroup>
+</Project>

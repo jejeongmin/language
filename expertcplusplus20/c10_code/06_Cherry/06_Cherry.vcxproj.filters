@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="source">
+      <UniqueIdentifier>{2b2ed443-7ed4-4906-91ea-1c929c98839f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CherryTree.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="BingCherry.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="BingCherryTree.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="Cherry.h">
+      <Filter>source</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BingCherry.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="BingCherryTree.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="Cherry.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="CherryTree.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="TestCherry.cpp" />
+  </ItemGroup>
+</Project>

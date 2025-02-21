@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">FoodChoiceApp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">화면 전환 성공!!</string>
+</resources>

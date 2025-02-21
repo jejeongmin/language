@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="source">
+      <UniqueIdentifier>{d3ce29ad-3f72-47a6-be0f-6bddc59dd810}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Spreadsheet.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="SpreadsheetCell.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="SpreadsheetTest.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Spreadsheet.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="SpreadsheetCell.h">
+      <Filter>source</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

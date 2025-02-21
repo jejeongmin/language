@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="source">
+      <UniqueIdentifier>{f1b891ea-991a-4a23-a8b5-315172376b47}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Database.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="DatabaseTest.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="Employee.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="EmployeeTest.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="UserInterface.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Database.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="Employee.h">
+      <Filter>source</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
